@@ -18,4 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/profile','UserController@create_profile_view')->name('create_profile_view');
+
+
+
+
+Route::get('/make_profile','UserController@make_profile_view')->name('make_profile_view');
+Route::get('/profile','UserController@profile_view')->name('profile_view');
+Route::get('/products','ProductController@products_view')->name('products_view');
+Route::get('/make_product','ProductController@make_product_view')->name('make_product_view');
+Route::get('/make_offer','ProductController@make_offer_view')->name('make_offer_view');
+Route::get('/offers','OfferController@offer_view')->name('offer_view');

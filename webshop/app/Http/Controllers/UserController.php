@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function create_profile_view(){
+    public function make_profile_view(){
         return view('profile/create_profile_view');
+    }
+    public function profile_view(){
+        return view('profile/profile_view');
     }
 }
