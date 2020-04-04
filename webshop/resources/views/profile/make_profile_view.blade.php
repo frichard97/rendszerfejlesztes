@@ -32,14 +32,14 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <form method="POST" action="">
+                        <form method="POST" action="{{route('create_profile')}}">
                             @csrf
 
                             <div class="form-group row">
                                 <label  class="col-4 col-form-label">Vezeték Név*</label>
                                 <div class="col-8">
                                     <input id="vnev" name="vnev" placeholder="Vezeték Név" class="form-control here " type="text">
-                                    
+
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -52,7 +52,7 @@
                                 <label  class="col-4 col-form-label">Irányító szám*</label>
                                 <div class="col-8">
                                     <input id="iranyito_szam" name="iranyito_szam" placeholder="Irányító szám" class="form-control here " type="text">
-                                    
+
                                 </div>
                             </div>
                             <div class="form-group row">

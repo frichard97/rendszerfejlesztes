@@ -14,7 +14,14 @@ class CreateProfilesTable extends Migration
     public function up()
     {
         Schema::create('profiles', function (Blueprint $table) {
-            $table->increments('id');
+            $table->unsignedInteger('id');
+            $table->string('vnev');
+            $table->string('knev');
+            $table->string('postcode');
+            $table->string('helyseg_nev');
+            $table->string('utca');
+            $table->string('haz_szam');
+            $table->foreign('id')->references('id')->on('users');
             $table->timestamps();
         });
     }
