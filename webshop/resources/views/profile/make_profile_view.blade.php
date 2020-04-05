@@ -38,39 +38,39 @@
                             <div class="form-group row">
                                 <label  class="col-4 col-form-label">Vezeték Név*</label>
                                 <div class="col-8">
-                                    <input id="vnev" name="vnev" placeholder="Vezeték Név" class="form-control here " type="text">
+                                    <input id="lastname" name="lastname" placeholder="Vezeték Név" class="form-control here " type="text">
 
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label  class="col-4 col-form-label">Kereszt Név*</label>
                                 <div class="col-8">
-                                    <input id="knev" name="knev" placeholder="Kereszt Név" class="form-control here" required="required" type="text">
+                                    <input id="firstname" name="firstname" placeholder="Kereszt Név" class="form-control here" required="required" type="text">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label  class="col-4 col-form-label">Irányító szám*</label>
                                 <div class="col-8">
-                                    <input id="iranyito_szam" name="iranyito_szam" placeholder="Irányító szám" class="form-control here " type="text">
+                                    <input id="postcode" name="postcode" placeholder="Irányító szám" class="form-control here " type="text">
 
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label  class="col-4 col-form-label">Helység Név*</label>
                                 <div class="col-8">
-                                    <input id="helyseg_nev" name="helyseg_nev" placeholder="Helység Név" class="form-control here" type="text">
+                                    <input id="place" name="place" placeholder="Helység Név" class="form-control here" type="text">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label  class="col-4 col-form-label">Utca*</label>
                                 <div class="col-8">
-                                    <input id="utca" name="utca" placeholder="Utca" class="form-control here" type="text">
+                                    <input id="street" name="street" placeholder="Utca" class="form-control here" type="text">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label  class="col-4 col-form-label">Ház szám*</label>
                                 <div class="col-8">
-                                    <input id="haz_szam" name="haz_szam" placeholder="Ház szám" class="form-control here" type="text">
+                                    <input id="number" name="number" placeholder="Ház szám" class="form-control here" type="text">
                                 </div>
                             </div>
                             <div class="form-group row">
