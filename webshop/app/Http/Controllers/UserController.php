@@ -12,7 +12,8 @@ class UserController extends Controller
         return view('profile/make_profile_view');
     }
     public function profile_view(){
-        return view('profile/profile_view');
+        $profile = Auth::user()->profile;
+        return view('profile/profile_view',['profile'=>$profile]);
     }
     public function create_profile(Request $request){
         $validator = Validator::make($request->all(),[
