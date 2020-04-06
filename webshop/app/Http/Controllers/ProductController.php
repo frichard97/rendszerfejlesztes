@@ -23,7 +23,26 @@ class ProductController extends Controller
     }
     public function create_product(Request $request)
     {
-
+        $validator = Validator::make($request->all(),[
+                'name' => 'required',
+                'description' => 'required',
+                'price' =>'required',
+                'quantity' => 'required'
+        ]);
+        if($validator->fails()){
+            return back()->withErrors($validator);
+        }
+        else
+        {
+            Profile::create([
+                'name' => $request['name'],
+                'description' => $request['description'],
+                'price' => $request['price'],
+                'quantity' => $request['quantity'],
+                'user_id' => Auth::user()->id
+            ]);
+            return redirect('/');
+        }
     }
     public function product_view($id)
     {
