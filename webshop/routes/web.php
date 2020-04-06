@@ -33,6 +33,11 @@ Route::middleware(['auth'])->group(function (){
         Route::get('/make_offer','ProductController@make_offer_view')->name('make_offer_view');
         Route::get('/offers','OfferController@offer_view')->name('offer_view');
         Route::post('/create_offer','OfferController@create_offer')->name('create_offer');
+        //ADMIN middleware TODO
+        Route::get('/user/{id}','AdminController@user_view')->name('user_view');
+        Route::get('/users','AdminController@users_view')->name('users_view');
+        Route::get('/categories','AdminController@categories_view')->name('categories_view');
+        Route::get('/make_category','AdminController@make_category_view')->name('make_category_view');
     });
 
 });
