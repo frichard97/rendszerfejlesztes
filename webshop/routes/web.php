@@ -12,20 +12,28 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('offers_view');
+})->middleware('no_profile');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/product/{id}','ProductController@product_view')->name('product_view')->middleware('no_profile');
 
 
+Route::middleware(['auth'])->group(function (){
+    Route::get('/make_profile','UserController@make_profile_view')->name('make_profile_view')->middleware('has_profile');
+    Route::post('/create_profile','UserController@create_profile')->name('create_profile')->middleware('has_profile');
+    Route::middleware(['no_profile'])->group(function(){
+        Route::get('/profile','UserController@profile_view')->name('profile_view');
+        Route::post('/new_password','UserController@new_password')->name('new_password');
+        Route::post('/new_address','UserController@new_address')->name('new_address');
+        Route::get('/products','ProductController@products_view')->name('products_view');
+        Route::post('/delete_product','ProductController@delete_product')->name('delete_product');
+        Route::get('/make_product','ProductController@make_product_view')->name('make_product_view');
+        Route::post('/create_product','ProductController@create_product')->name('create_product');
+        Route::get('/make_offer','ProductController@make_offer_view')->name('make_offer_view');
+        Route::get('/offers','OfferController@offer_view')->name('offer_view');
+        Route::post('/create_offer','OfferController@create_offer')->name('create_offer');
+    });
 
-Route::get('/make_profile','UserController@make_profile_view')->name('make_profile_view');
-Route::post('/create_profile','UserController@create_profile')->name('create_profile');
-Route::get('/profile','UserController@profile_view')->name('profile_view');
-Route::get('/products','ProductController@products_view')->name('products_view');
-Route::get('/make_product','ProductController@make_product_view')->name('make_product_view');
-Route::get('/make_offer','ProductController@make_offer_view')->name('make_offer_view');
-Route::get('/offers','OfferController@offer_view')->name('offer_view');
+});
+
