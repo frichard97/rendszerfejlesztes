@@ -31,6 +31,6 @@ class CreateOfferUserWhitelistTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('offer_user');
+        Schema::dropIfExists('offer_user_whitelist');
     }
 }
