@@ -11,9 +11,13 @@
                         <table class="table table-user-information ">
                             <tbody>
                             <tr>
-                                <td>Név:</td>
+                                <td>Kereszt Név:</td>
                                 <td>asd</td>
-                            </tr>                          
+                            </tr>
+                            <tr>
+                                <td>Vezeték Név:</td>
+                                <td>asd</td>
+                            </tr>                         
                             <tr>
                                 <td>Irányító szám:</td>
                                 <td>asd</td>
@@ -45,24 +49,28 @@
                         <table class="table table-user-information ">
                             <tbody>
                             <tr>
-                                <td>Név:</td>
-                                <td><input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="nev"></td>
+                                <td>Kereszt Név:</td>
+                                <td><input class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname"></td>
+                            </tr> 
+                            <tr>
+                                <td>Vezeték Név:</td>
+                                <td><input class="form-control{{ $errors->has('lastname') ? ' is-invalid' : '' }}" name="lastname"></td>
                             </tr>                          
                             <tr>
                                 <td>Irányító szám:</td>
-                                <td><input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="iranyito_szam"></td>
+                                <td><input class="form-control{{ $errors->has('postalcode') ? ' is-invalid' : '' }}" name="postalcode"></td>
                             </tr>
                             <tr>
                                 <td>Helység név:</td>
-                                <td><input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="helyseg_nev"></td>
+                                <td><input class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city"></td>
                             </tr>
                             <tr>
                                 <td>Utca:</td>
-                                <td><input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="utca"></td>
+                                <td><input class="form-control{{ $errors->has('street') ? ' is-invalid' : '' }}" name="street"></td>
                             </tr>
                             <tr>
                                 <td>Ház szám:</td>
-                                <td><input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="haz_szam"></td>
+                                <td><input class="form-control{{ $errors->has('number') ? ' is-invalid' : '' }}" name="number"></td>
                             </tr>                           
 
                             </tbody>
@@ -82,26 +90,26 @@
                     <div class="card-body">
                     <h2 class="card-title">Jelszó Változtatás</h2>
             <div class="form-group row">
-                            <label for="aktualis jelszo" class="col-md-6 col-form-label text-md-right">{{ __('Aktuális jelszó') }}</label>
+                            <label for="current_password" class="col-md-6 col-form-label text-md-right">{{ __('Aktuális jelszó') }}</label>
 
                             <div class="col-md-4">
-                                <input id="aktualis jelszo" type="aktualis jelszo" class="form-control{{ $errors->has('aktualis jelszo') ? ' is-invalid' : '' }}" name="aktualis jelszo"  required>
+                                <input id="current_password" type="current_password" class="form-control{{ $errors->has('current_password') ? ' is-invalid' : '' }}" name="current_password"  required>
 
                             </div>
                         </div>
             <div class="form-group row">
-                            <label for="uj_jelszo" class="col-md-6 col-form-label text-md-right">{{ __('Új jelszó') }}</label>
+                            <label for="new_password" class="col-md-6 col-form-label text-md-right">{{ __('Új jelszó') }}</label>
 
                             <div class="col-md-4">
-                                <input id="uj_jelszo" type="uj_jelszo" class="form-control{{ $errors->has('uj_jelszo') ? ' is-invalid' : '' }}" name="uj_jelszo"  required>
+                                <input id="new_password" type="new_password" class="form-control{{ $errors->has('new_password') ? ' is-invalid' : '' }}" name="new_password"  required>
 
                             </div>
                         </div>
             <div class="form-group row">
-                            <label for="uj_jelszo_megegyszer" class="col-md-6 col-form-label text-md-right">{{ __('Új jelszó mégegyszer') }}</label>
+                            <label for="new_password_again" class="col-md-6 col-form-label text-md-right">{{ __('Új jelszó mégegyszer') }}</label>
 
                             <div class="col-md-4">
-                                <input id="uj_jelszo_megegyszer" type="uj_jelszo_megegyszer" class="form-control{{ $errors->has('uj_jelszo_megegyszer') ? ' is-invalid' : '' }}" name="uj_jelszo_megegyszer"  required>
+                                <input id="new_password_again" type="new_password_again" class="form-control{{ $errors->has('new_password_again') ? ' is-invalid' : '' }}" name="new_password_again"  required>
 
                             </div>
                             <div class="container">
