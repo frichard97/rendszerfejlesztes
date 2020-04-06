@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'email', 'password',
     ];
 
     /**
@@ -37,6 +37,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     public function profile(){
-         return $this->hasOne(Profile::class,id,id);
+         return $this->hasOne(Profile::class);
+    }
+    public function products(){
+        return $this->hasMany(Product::class);
     }
 }
