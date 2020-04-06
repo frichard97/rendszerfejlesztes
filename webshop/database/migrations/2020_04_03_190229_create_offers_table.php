@@ -14,12 +14,12 @@ class CreateOffersTable extends Migration
     public function up()
     {
         Schema::create('offers', function (Blueprint $table) {
-            $table->unsignedInteger('product_id')->unique()->primary();
+            $table->integer('product_id')->unsigned()->unique()->primary();
             $table->date('end_date');
             $table->boolean('visibility'); // 0 = Public 1 = Private
             $table->unsignedInteger('currentprice');
             $table->string('status');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +31,8 @@ class CreateOffersTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
         Schema::dropIfExists('offers');
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }
