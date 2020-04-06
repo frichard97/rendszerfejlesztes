@@ -60,7 +60,7 @@
                             <div class="form-group row">
                                 <label  class="col-4 col-form-label">Irányító szám*</label>
                                 <div class="col-8">
-                                    <input id="postcode" name="postcode" placeholder="Irányító szám" class="form-control{{ $errors->has('postcode) ? ' is-invalid' : '' }}" type="text">
+                                    <input id="postcode" name="postcode" placeholder="Irányító szám" class="form-control{{ $errors->has('postcode') ? ' is-invalid' : '' }}" type="text">
                                     @if ($errors->has('postcode'))
                                     <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('postcode') }}</strong>
