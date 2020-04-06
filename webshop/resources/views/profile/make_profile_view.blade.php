@@ -38,39 +38,67 @@
                             <div class="form-group row">
                                 <label  class="col-4 col-form-label">Vezeték Név*</label>
                                 <div class="col-8">
-                                    <input id="lastname" name="lastname" placeholder="Vezeték Név" class="form-control here " type="text">
-
+                                    <input id="lastname" name="lastname" placeholder="Vezeték Név" class="form-control{{ $errors->has('lastname') ? ' is-invalid' : '' }}" type="text" autofocus>
+                                    @if ($errors->has('lastname'))
+                                    <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('lastname') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label  class="col-4 col-form-label">Kereszt Név*</label>
                                 <div class="col-8">
-                                    <input id="firstname" name="firstname" placeholder="Kereszt Név" class="form-control here" required="required" type="text">
+                                    <input id="firstname" name="firstname" placeholder="Kereszt Név" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" type="text">
+                                    @if ($errors->has('firstname'))
+                                    <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('firstname') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label  class="col-4 col-form-label">Irányító szám*</label>
                                 <div class="col-8">
-                                    <input id="postcode" name="postcode" placeholder="Irányító szám" class="form-control here " type="text">
-
+                                    <input id="postcode" name="postcode" placeholder="Irányító szám" class="form-control{{ $errors->has('postcode) ? ' is-invalid' : '' }}" type="text">
+                                    @if ($errors->has('postcode'))
+                                    <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('postcode') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label  class="col-4 col-form-label">Helység Név*</label>
                                 <div class="col-8">
-                                    <input id="place" name="place" placeholder="Helység Név" class="form-control here" type="text">
+                                    <input id="place" name="place" placeholder="Helység Név" class="form-control{{ $errors->has('place') ? ' is-invalid' : '' }}" type="text">
+                                    @if ($errors->has('place'))
+                                    <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('place') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label  class="col-4 col-form-label">Utca*</label>
                                 <div class="col-8">
-                                    <input id="street" name="street" placeholder="Utca" class="form-control here" type="text">
+                                    <input id="street" name="street" placeholder="Utca" class="form-control{{ $errors->has('street') ? ' is-invalid' : '' }}" type="text">
+                                    @if ($errors->has('street'))
+                                    <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('street') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label  class="col-4 col-form-label">Ház szám*</label>
                                 <div class="col-8">
-                                    <input id="number" name="number" placeholder="Ház szám" class="form-control here" type="text">
+                                    <input id="number" name="number" placeholder="Ház szám" class="form-control{{ $errors->has('number') ? ' is-invalid' : '' }}" type="text">
+                                    @if ($errors->has('number'))
+                                    <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('number') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row">
