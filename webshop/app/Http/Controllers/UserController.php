@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Profile;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     public function make_profile_view(){
@@ -15,20 +16,34 @@ class UserController extends Controller
     }
     public function create_profile(Request $request){
         $validator = Validator::make($request->all(),[
-                'vnev' => 'required',
-                'knev' => 'required',
-                'iranyito_szam' =>'required',
-                'haz_szam' => 'required',
-                'utca' => 'required',
-                'helyseg_nev' => 'required'
+                'lastname' => 'required',
+                'firstname' => 'required',
+                'postcode' =>'required',
+                'place' => 'required',
+                'street' => 'required',
+                'number' => 'required'
         ]);
         if($validator->fails()){
             return back()->withErrors($validator);
         }
         else
         {
-            //TODO create profile
+            Profile::create([
+                'user_id' => Auth::user()->id,
+                'lastname' => $request['lastname'],
+                'firstname' => $request['firstname'],
+                'postcode' => $request['postcode'],
+                'place' => $request['place'],
+                'street' => $request['street'],
+                'number' => $request['number'],
+            ]);
             return redirect('/');
         }
+    }
+    public function new_password(Request $request){
+        return "OK";
+    }
+    public function new_address(Request $request){
+
     }
 }
