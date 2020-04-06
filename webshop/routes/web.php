@@ -38,6 +38,9 @@ Route::middleware(['auth'])->group(function (){
         Route::get('/users','AdminController@users_view')->name('users_view');
         Route::get('/categories','AdminController@categories_view')->name('categories_view');
         Route::get('/make_category','AdminController@make_category_view')->name('make_category_view');
+        Route::post('/delete_category','AdminController@delete_category')->name('delete_category'); //TODO MIDDLEWARE
+        Route::post('/modify_category','AdminController@modify_category')->name('modify_category');
+        Route::post('/create_category','AdminController@create_category')->name('create_category');
     });
 
 });
