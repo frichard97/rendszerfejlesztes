@@ -66,7 +66,7 @@
                             </tr>
                             <tr>
                                 <td>Utca:</td>
-                                <td><input class="form-control{{ $errors->has(street') ? ' is-invalid' : '' }}" name="street"></td>
+                                <td><input class="form-control{{ $errors->has('street') ? ' is-invalid' : '' }}" name="street"></td>
                             </tr>
                             <tr>
                                 <td>Ház szám:</td>
