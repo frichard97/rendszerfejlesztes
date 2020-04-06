@@ -16,4 +16,7 @@ class Product extends Model
     {
         return $this->hasOne(User::class);
     }
+    public function offer(){
+        return $this->hasOne(Offer::class);
+    }
 }

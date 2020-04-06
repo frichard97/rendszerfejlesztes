@@ -42,4 +42,7 @@ class User extends Authenticatable
     public function products(){
         return $this->hasMany(Product::class);
     }
+    public function white_offers(){
+        return $this->belongsToMany(Offer::class,'offer_user_whitelist','user_id','offer_id');
+    }
 }

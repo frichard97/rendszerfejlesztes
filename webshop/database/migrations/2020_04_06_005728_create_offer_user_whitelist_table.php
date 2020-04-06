@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProfilesTable extends Migration
+class CreateOfferUserWhitelistTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('profiles', function (Blueprint $table) {
-            $table->unsignedInteger('user_id')->unique()->primary();
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('postcode');
-            $table->string('place');
-            $table->string('street');
-            $table->string('number');
+        Schema::create('offer_user_whitelist', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('offer_id');
+            $table->unsignedInteger('user_id');
+            $table->foreign('offer_id')->references('product_id')->on('offers');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->unique(['offer_id', 'user_id']);
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ class CreateProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profiles');
+        Schema::dropIfExists('offer_user');
     }
 }

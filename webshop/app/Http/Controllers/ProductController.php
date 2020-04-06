@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -13,6 +14,7 @@ class ProductController extends Controller
         return view('product/make_product_view');
     }
     public function make_offer_view(){
+        dd(Auth::user()->white_offers);
         return view('offer/make_offer_view');
     }
     public function delete_product(Request $request)
