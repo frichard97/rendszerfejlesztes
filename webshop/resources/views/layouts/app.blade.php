@@ -66,7 +66,16 @@
                                     </a> 
                                     <a class="dropdown-item" href="{{ route('offer_view') }}">
                                         {{ __('Saját Ajánlatok') }}
+                                        
                                     </a> 
+                                    @if(Auth::user()->isAdmin())
+                                    <a class="dropdown-item" href="{{ route('categories_view') }}">
+                                        {{ __('Kategóriák') }}
+                                        
+                                    </a> <a class="dropdown-item" href="{{ route('users_view') }}">
+                                        {{ __('Felhasználók') }} 
+                                    </a> 
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
