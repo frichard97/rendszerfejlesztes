@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Validator;
 class ProductController extends Controller
 {
     public function products_view(){
-        return view('product/products_view');
+        $products = Auth::user()->products;
+        return view('product/products_view',['products'=>$products]);
     }
     public function make_product_view(){
         return view('product/make_product_view');
