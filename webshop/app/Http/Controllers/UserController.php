@@ -72,6 +72,28 @@ class UserController extends Controller
         }
     }
     public function new_address(Request $request){
+        $profile = Profile::find(Auth::user()->id);
 
+        if($request['firstname']) {
+            $profile->firstname = $request['firstname'];
+        }
+        if($request['lastname']) {
+            $profile->lastname = $request['lastname'];
+        }
+        if($request['postcode']) {
+            $profile->postcode = $request['postcode'];
+        }
+        if($request['city']) {
+            $profile->place = $request['city'];
+        }
+        if($request['street']) {
+            $profile->street = $request['street'];
+        }
+        if($request['number']) {
+            $profile->number = $request['number'];
+        }
+        $profile->save();
+        
+        return back();
     }
 }

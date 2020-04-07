@@ -19,7 +19,7 @@ class ProductController extends Controller
     }
     public function delete_product(Request $request)
     {
-
+        
     }
     public function create_product(Request $request)
     {
