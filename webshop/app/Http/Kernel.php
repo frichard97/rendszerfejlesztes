@@ -65,6 +65,7 @@ class Kernel extends HttpKernel
         'no_profile'=> NoProfile::class,
         'has_profile' => hasProfile::class,
         'product_is_yours' => ProductIsYours::class,
+        'user_exist' => UserExist::class,
     ];
 
     /**
