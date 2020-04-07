@@ -49,7 +49,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Offer::class,'offer_user_wishlist','user_id','offer_id');
     }
     public function role(){
-        return $this->hasOne(Role::class);
+        return $this->hasOne(Role::class,'id','role_id');
     }
     public function IsAdmin(){
         if($this->role->name == "Admin"){
