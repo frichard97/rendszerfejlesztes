@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
@@ -27,19 +29,24 @@ class ProductController extends Controller
                 'name' => 'required',
                 'description' => 'required',
                 'price' =>'required',
-                'quantity' => 'required'
+                'quantity' => 'required',
+                'image' => ['required','image','max:2048'],
         ]);
         if($validator->fails()){
+            dd($validator);
             return back()->withErrors($validator);
         }
         else
         {
-            Profile::create([
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            Product::create([
                 'name' => $request['name'],
                 'description' => $request['description'],
                 'price' => $request['price'],
                 'quantity' => $request['quantity'],
-                'user_id' => Auth::user()->id
+                'user_id' => Auth::user()->id,
+                'image' => $imageName,
             ]);
             return redirect('/');
         }
