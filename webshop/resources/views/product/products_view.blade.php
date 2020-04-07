@@ -6,6 +6,7 @@
 @section('content')
 
 <div class="container">
+    
     <div class="row">
         <div class="col-lg-12">
             <div class="main-box no-header clearfix">
@@ -59,10 +60,10 @@
             </div>
         </div>
     </div>
-</div>
-<div class="offset-1">
+    <div>
 <a class="btn btn-primary" href="{{ url('/make_product') }}">
                     Termék hozzáadása
-                </a>
+</a>
+</div>
 </div>
 @endsection
