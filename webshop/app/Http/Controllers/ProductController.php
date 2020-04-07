@@ -20,10 +20,25 @@ class ProductController extends Controller
         dd(Auth::user()->white_offers);
         return view('offer/make_offer_view');
     }
+
     public function delete_product(Request $request)
     {
-
+        $product = Product::find($request['id']);
+        if ($product) {
+            if (!Offer::find($product->id)) {
+                $product->delete();
+                Session::flash('success', 'A terméket sikeresen töröltük. :)');
+                return redirect('/');
+            } else {
+                Session::flash('failed', 'A termék meg van hirdetve, így nem tudjuk törölni. :(');
+                return redirect('/');
+            }
+        } else {
+            Session::flash('failed', 'A termék nem létezik, így nem tudjuk törölni. :(');
+            return redirect('/');
+        }
     }
+
     public function create_product(Request $request)
     {
         $validator = Validator::make($request->all(),[
@@ -52,6 +67,7 @@ class ProductController extends Controller
             return redirect('/');
         }
     }
+
     public function product_view($id)
     {
         return view('product/product_view');

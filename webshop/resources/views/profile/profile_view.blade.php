@@ -78,8 +78,8 @@
                                     <tr>
                                         <td>Irányító szám:</td>
                                         <td><input
-                                                class="form-control{{ $errors->has('postalcode') ? ' is-invalid' : '' }}"
-                                                name="postalcode"></td>
+                                                class="form-control{{ $errors->has('postcode') ? ' is-invalid' : '' }}"
+                                                name="postcode"></td>
                                     </tr>
                                     <tr>
                                         <td>Helység név:</td>
