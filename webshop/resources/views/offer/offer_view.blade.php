@@ -16,16 +16,15 @@
                                 <th><span>Termék</span></th>
                                 <th><span>Lejárat</span></th>
                                 <th class="text-center"><span>Állapot</span></th>
-                                <th><span>ár</span></th>
+                                <th><span>Aktuális ár</span></th>
                                 <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <img src="https://bootdey.com/img/Content/user_1.jpg" alt="">
-                                        <a href="#" class="user-link">Terméknév</a>
-                                        <span class="user-subhead">category</span>
+                                        
+                                        <a>Terméknév</a>
                                     </td>
                                     <td>2013/08/12</td>
                                     <td class="text-center">
