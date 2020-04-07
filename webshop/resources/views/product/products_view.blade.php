@@ -25,7 +25,7 @@
                                 <tr>
                                     <td>
                                         
-                                        <a  class="user-link">Terméknév</a>
+                                        <a>Terméknév</a>
                                     </td>
                                     <td>kategoria1,kategoria2</td>
                                     <td>
