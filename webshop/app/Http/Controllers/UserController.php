@@ -73,27 +73,35 @@ class UserController extends Controller
     }
     public function new_address(Request $request){
         $profile = Profile::find(Auth::user()->id);
-
+        $isModified = false;
         if($request['firstname']) {
             $profile->firstname = $request['firstname'];
+            $isModified = true;
         }
         if($request['lastname']) {
             $profile->lastname = $request['lastname'];
+            $isModified = true;
         }
         if($request['postcode']) {
             $profile->postcode = $request['postcode'];
+            $isModified = true;
         }
         if($request['city']) {
             $profile->place = $request['city'];
+            $isModified = true;
         }
         if($request['street']) {
             $profile->street = $request['street'];
+            $isModified = true;
         }
         if($request['number']) {
             $profile->number = $request['number'];
+            $isModified = true;
         }
         $profile->save();
-        
+        if($isModified) {
+            Session::flash('success', 'Sikeres módosult(ak) az adat(ok)!');
+        }
         return back();
     }
 }
