@@ -45,4 +45,16 @@ class User extends Authenticatable
     public function white_offers(){
         return $this->belongsToMany(Offer::class,'offer_user_whitelist','user_id','offer_id');
     }
+    public function wish_offers(){
+        return $this->belongsToMany(Offer::class,'offer_user_wishlist','user_id','offer_id');
+    }
+    public function role(){
+        return $this->hasOne(Role::class);
+    }
+    public function IsAdmin(){
+        if($this->role->name == "Admin"){
+            return true;
+        }
+        return false;
+    }
 }

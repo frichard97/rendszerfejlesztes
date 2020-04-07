@@ -15,6 +15,11 @@ class CreateOfferUserWishlistTable extends Migration
     {
         Schema::create('offer_user_wishlist', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('offer_id');
+            $table->unsignedInteger('user_id');
+            $table->foreign('offer_id')->references('product_id')->on('offers');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unique(['offer_id', 'user_id']);
             $table->timestamps();
         });
     }
