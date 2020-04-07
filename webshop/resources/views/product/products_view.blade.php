@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 @endpush
 @section('content')
+
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
@@ -58,5 +59,10 @@
             </div>
         </div>
     </div>
+</div>
+<div class="offset-1">
+<a class="btn btn-primary" href="{{ url('/make_product') }}">
+                    Termék hozzáadása
+                </a>
 </div>
 @endsection
