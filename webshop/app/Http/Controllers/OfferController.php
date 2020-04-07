@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OfferController extends Controller
 {
     public function offer_view(){
-        return view('offer/offer_view');
+        $offers = Auth::user()->offers;
+        return view('offer/offer_view',['offers' =>$offers]);
     }
     public function create_offer(Request $request){
         $validator = Validator::make($request->all(),[
