@@ -3,5 +3,6 @@
     "/css/app.css": "/css/app.css",
     "/css/offer_view.css": "/css/offer_view.css",
     "/css/offers_view.css": "/css/offers_view.css",
-    "/css/products_view.css": "/css/products_view.css"
+    "/css/products_view.css": "/css/products_view.css",
+    "/js/ddm.js": "/js/ddm.js"
 }
