@@ -51,6 +51,9 @@ class User extends Authenticatable
     public function role(){
         return $this->hasOne(Role::class,'id','role_id');
     }
+    public function offers(){
+        return $this->hasManyThrough(Offer::class,Product::class,'user_id','product_id');
+    }
     public function IsAdmin(){
         if($this->role->name == "Admin"){
             return true;

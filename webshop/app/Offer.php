@@ -14,6 +14,9 @@ class Offer extends Model
     {
         return $this->belongsToMany(User::class,'offer_user_whitelist','offer_id','user_id');
     }
+    public function wish_users(){
+        return $this->belongsToMany(User::class,'offer_user_wishlist','offer_id','user_id');
+    }
     public function product(){
         return $this->belongsTo(Product::class);
     }

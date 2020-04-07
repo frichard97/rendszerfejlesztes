@@ -17,7 +17,6 @@ class ProductController extends Controller
         return view('product/make_product_view');
     }
     public function make_offer_view(){
-        dd(Auth::user()->white_offers);
         return view('offer/make_offer_view');
     }
 
@@ -70,7 +69,8 @@ class ProductController extends Controller
 
     public function product_view($id)
     {
-        return view('product/product_view');
+        $product = Product::find($id);
+        return view('product/product_view',['product' => $product]);
     }
 
 }
