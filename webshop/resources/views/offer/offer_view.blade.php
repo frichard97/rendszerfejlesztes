@@ -1,11 +1,10 @@
 @extends('layouts.app')
 @push('styles')
 <link href="{{ asset('css/offer_view.css') }}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 @endpush
 @section('content')
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-<hr>
-<div class="container bootstrap snippet">
+<div class="container">
     <div class="row">
         <div class="col-lg-12">
             <div class="main-box no-header clearfix">
@@ -56,7 +55,7 @@
                                         </a>
                                     </td>
                                 </tr>
-                                
+
                             </tbody>
                         </table>
                     </div>
