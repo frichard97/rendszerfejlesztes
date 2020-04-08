@@ -16,7 +16,7 @@ Route::get('/', function () {
 })->middleware('no_profile');
 
 Auth::routes();
-Route::get('/product/{id}','ProductController@product_view')->name('product_view')->middleware('no_profile');
+Route::get('/product/{id}','ProductController@product_view')->name('product_view')->middleware('no_profile')->middleware('product_view_exists_offer');
 
 
 Route::middleware(['auth'])->group(function (){

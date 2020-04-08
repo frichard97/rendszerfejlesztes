@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\hasProfile;
 use App\Http\Middleware\NoProfile;
+use App\Http\Middleware\ProductViewExistsOffer;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -66,6 +67,7 @@ class Kernel extends HttpKernel
         'has_profile' => hasProfile::class,
         'product_is_yours' => ProductIsYours::class,
         'user_exist' => UserExist::class,
+        'product_view_exists_offer' => ProductViewExistsOffer::class,
     ];
 
     /**
