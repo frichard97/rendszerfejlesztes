@@ -106,7 +106,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\vighe\OneDrive\Dokumentumok\projects\rendszerfejlesztes\webshop\resources\js\ddm.js */"./resources/js/ddm.js");
+module.exports = __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\js\ddm.js */"./resources/js/ddm.js");
 
 
 /***/ })
