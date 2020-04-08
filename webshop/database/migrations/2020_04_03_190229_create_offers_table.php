@@ -18,7 +18,7 @@ class CreateOffersTable extends Migration
             $table->date('end_date');
             $table->boolean('visibility'); // 0 = Public 1 = Private
             $table->unsignedInteger('currentprice');
-            $table->string('status');
+            $table->boolean('status')->default(true);
             $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
