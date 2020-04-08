@@ -15,20 +15,20 @@
                             <thead>
                                 <tr>
                                     <th><span>Email</span></th>
-                                    <th><span>Role id</span></th>
+                                    <th><span>Jogosultság</span></th>
                                     <th><span>Létrehozva</span></th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
-
+                            @foreach($users as $user)
                                 <tr>
                                     <td>
-                                        asd@gmail.com
+                                    {{$user->email}}
                                     </td>
-                                    <td>1</td>
+                                    <td>{{$user->role->name}}</td>
                                     <td>
-                                    <span>ido</span>
+                                    <span>{{$user->created_at}}</span>
                                     </td>
                                     <td style="width: 20%;">
                                         <a href="#" class="table-link">
@@ -51,7 +51,7 @@
                                         </a>
                                     </td>
                                 </tr>
-
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
