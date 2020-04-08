@@ -49511,6 +49511,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/product_view.scss":
+/*!******************************************!*\
+  !*** ./resources/sass/product_view.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/products_view.scss":
 /*!*******************************************!*\
   !*** ./resources/sass/products_view.scss ***!
@@ -49534,9 +49545,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!*******************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/offer_view.scss ./resources/sass/offers_view.scss ./resources/sass/products_view.scss ./resources/sass/categories_view.scss ./resources/sass/users_view.scss ***!
-  \*******************************************************************************************************************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/offer_view.scss ./resources/sass/offers_view.scss ./resources/sass/products_view.scss ./resources/sass/categories_view.scss ./resources/sass/users_view.scss ./resources/sass/product_view.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -49546,7 +49557,8 @@ __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\reso
 __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\sass\offers_view.scss */"./resources/sass/offers_view.scss");
 __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\sass\products_view.scss */"./resources/sass/products_view.scss");
 __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\sass\categories_view.scss */"./resources/sass/categories_view.scss");
-module.exports = __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\sass\users_view.scss */"./resources/sass/users_view.scss");
+__webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\sass\users_view.scss */"./resources/sass/users_view.scss");
+module.exports = __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\sass\product_view.scss */"./resources/sass/product_view.scss");
 
 
 /***/ })
