@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,8 @@ class ProductController extends Controller
         return view('product/products_view',['products'=>$products]);
     }
     public function make_product_view(){
-        return view('product/make_product_view');
+        $categories = Category::all();
+        return view('product/make_product_view',['categories' => $categories]);
     }
     public function make_offer_view($id){
         return view('offer/make_offer_view');
@@ -27,14 +29,14 @@ class ProductController extends Controller
             if (!Offer::find($product->id)) {
                 $product->delete();
                 Session::flash('success', 'A terméket sikeresen töröltük. :)');
-                return redirect('/');
+                return back();
             } else {
                 Session::flash('failed', 'A termék meg van hirdetve, így nem tudjuk törölni. :(');
-                return redirect('/');
+                return back();
             }
         } else {
             Session::flash('failed', 'A termék nem létezik, így nem tudjuk törölni. :(');
-            return redirect('/');
+            return back();
         }
     }
 
