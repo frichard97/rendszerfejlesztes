@@ -32,12 +32,32 @@ class AdminController extends Controller
 
     public function delete_category(Request $request)
     {
-
+        
     }
 
     public function modify_category(Request $request)
     {
-
+        $validator = Validator::make($request->all(),[
+            'id' => 'required',
+           'name' => 'required'
+        ]);
+        if($validator->fails()){
+            return back();
+        }
+        else
+        {
+            $category = Category::find($request['id']);
+            if($category)
+            {
+                $category->name = $request['name'];
+                $category->save();
+                return back();
+            }
+            else
+            {
+                return back();
+            }
+        }
     }
 
     public function create_category(Request $request)
