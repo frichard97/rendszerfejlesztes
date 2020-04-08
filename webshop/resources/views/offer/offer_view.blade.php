@@ -21,17 +21,18 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            @foreach($offers as $offer)
                                 <tr>
                                     <td>
                                         
-                                        <a>Terméknév</a>
+                                        <a>{{$offer->product->name}}</a>
                                     </td>
-                                    <td>2013/08/12</td>
+                                    <td>{{$offer->end_date}}</td>
                                     <td class="text-center">
-                                        <span class="label label-default">nyilvános</span>
+                                        <span class="label label-default">{{$offer->status}}</span>
                                     </td>
                                     <td>
-                                        <a href="#">ár</a>
+                                        <a href="#">{{$offer->currentprice}}</a>
                                     </td>
                                     <td style="width: 20%;">
                                         <a href="#" class="table-link">
@@ -54,7 +55,7 @@
                                         </a>
                                     </td>
                                 </tr>
-
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

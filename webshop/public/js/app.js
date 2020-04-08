@@ -49540,13 +49540,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\vighe\OneDrive\Dokumentumok\projects\rendszerfejlesztes\webshop\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\Users\vighe\OneDrive\Dokumentumok\projects\rendszerfejlesztes\webshop\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\Users\vighe\OneDrive\Dokumentumok\projects\rendszerfejlesztes\webshop\resources\sass\offer_view.scss */"./resources/sass/offer_view.scss");
-__webpack_require__(/*! C:\Users\vighe\OneDrive\Dokumentumok\projects\rendszerfejlesztes\webshop\resources\sass\offers_view.scss */"./resources/sass/offers_view.scss");
-__webpack_require__(/*! C:\Users\vighe\OneDrive\Dokumentumok\projects\rendszerfejlesztes\webshop\resources\sass\products_view.scss */"./resources/sass/products_view.scss");
-__webpack_require__(/*! C:\Users\vighe\OneDrive\Dokumentumok\projects\rendszerfejlesztes\webshop\resources\sass\categories_view.scss */"./resources/sass/categories_view.scss");
-module.exports = __webpack_require__(/*! C:\Users\vighe\OneDrive\Dokumentumok\projects\rendszerfejlesztes\webshop\resources\sass\users_view.scss */"./resources/sass/users_view.scss");
+__webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\sass\offer_view.scss */"./resources/sass/offer_view.scss");
+__webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\sass\offers_view.scss */"./resources/sass/offers_view.scss");
+__webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\sass\products_view.scss */"./resources/sass/products_view.scss");
+__webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\sass\categories_view.scss */"./resources/sass/categories_view.scss");
+module.exports = __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\sass\users_view.scss */"./resources/sass/users_view.scss");
 
 
 /***/ })

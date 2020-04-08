@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @push('styles')
-<link href="{{ asset('css/category_view.css') }}" rel="stylesheet">
+<link href="{{ asset('css/categories_view.css') }}" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 @endpush
 @section('content')
@@ -21,14 +21,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-
+                                @foreach($categories as $category)
                                 <tr>
                                     <td>
-                                        Kategória név
+                                        {{$category->name}}
                                     </td>
-                                    <td>10</td>
+                                    <td>{{count($category->products)}}</td>
                                     <td>
-                                        <span>idő</span>
+                                        <span>{{$category->created_at}}</span>
                                     </td>
                                     <td style="width: 20%;">
                                         <a href="#" class="table-link">
@@ -51,7 +51,7 @@
                                         </a>
                                     </td>
                                 </tr>
-
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
