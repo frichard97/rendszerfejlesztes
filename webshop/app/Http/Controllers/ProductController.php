@@ -55,9 +55,10 @@ class ProductController extends Controller
         }
         else
         {
+            $categories = Category::find($request['categories']);
             $imageName = time().'.'.$request->image->extension();
             $request->image->move(public_path('images'), $imageName);
-            Product::create([
+            $product = Product::create([
                 'name' => $request['name'],
                 'description' => $request['description'],
                 'price' => $request['price'],
@@ -65,6 +66,7 @@ class ProductController extends Controller
                 'user_id' => Auth::user()->id,
                 'image' => $imageName,
             ]);
+            $product->categories()->attach($categories);
             return redirect('/');
         }
     }
