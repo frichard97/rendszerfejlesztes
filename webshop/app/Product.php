@@ -10,7 +10,7 @@ class Product extends Model
         'name', 'description','price','quantity','categories','user_id','image'
     ];
     public function categories(){
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class,'product_category');
     }
     public function user()
     {

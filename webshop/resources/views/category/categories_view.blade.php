@@ -85,7 +85,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button name="submit" type="submit" class="btn btn-primary">Létrehozás</button>
+                            <button type="submit" class="btn btn-primary">Létrehozás</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Vissza</button>
                         </div>
                     </form>

@@ -30,9 +30,9 @@ Route::middleware(['auth'])->group(function (){
         Route::post('/delete_product','ProductController@delete_product')->name('delete_product');
         Route::get('/make_product','ProductController@make_product_view')->name('make_product_view');
         Route::post('/create_product','ProductController@create_product')->name('create_product');
-        Route::get('/make_offer','ProductController@make_offer_view')->name('make_offer_view');
+        Route::get('product/{id}/make_offer','ProductController@make_offer_view')->name('make_offer_view');
         Route::get('/offers','OfferController@offer_view')->name('offer_view');
-        Route::post('/create_offer','OfferController@create_offer')->name('create_offer');
+        Route::post('product/{id}/create_offer','OfferController@create_offer')->name('create_offer');
         //ADMIN middleware TODO
         Route::get('/user/{id}','AdminController@user_view')->name('user_view');
         Route::get('/users','AdminController@users_view')->name('users_view');

@@ -11,9 +11,8 @@ class OfferController extends Controller
         $offers = Auth::user()->offers;
         return view('offer/offer_view',['offers' =>$offers]);
     }
-    public function create_offer(Request $request){
+    public function create_offer(Request $request, $product_id){
         $validator = Validator::make($request->all(),[
-            'product_id' => 'required',
             'end_date' => 'required',
             'visibility' =>'required',
             'currentprice' => 'required',
@@ -24,11 +23,11 @@ class OfferController extends Controller
         }
         else
         {
-            Profile::create([
-                'product_id' => $request['product_id'],
+            Offer::create([
+                'product_id' => $product_id,
                 'end_date' => $request['end_date'],
                 'visibility' => $request['visibility'],
-                'currentprice' => $request['currentprice'],
+                'currentprice' => 0,
                 'status' => $request['status']
         ]);
         return redirect('/');

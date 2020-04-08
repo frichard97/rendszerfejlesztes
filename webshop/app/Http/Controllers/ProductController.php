@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function make_product_view(){
         return view('product/make_product_view');
     }
-    public function make_offer_view(){
+    public function make_offer_view($id){
         return view('offer/make_offer_view');
     }
 
