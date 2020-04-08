@@ -81,32 +81,40 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/ddm.js":
-/*!*****************************!*\
-  !*** ./resources/js/ddm.js ***!
-  \*****************************/
+/***/ "./resources/js/product_view.js":
+/*!**************************************!*\
+  !*** ./resources/js/product_view.js ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-  $('.js-example-basic-multiple').select2();
+  $('.panel-heading').click(function () {
+    if (!$('.panel-body').hasClass('collapse show')) {
+      $('.downbutton').removeClass('fa fa-chevron-right');
+      $('.downbutton').addClass('fa fa-chevron-down');
+    } else {
+      $('.downbutton').removeClass('fa fa-chevron-down');
+      $('.downbutton').addClass('fa fa-chevron-right');
+    }
+  });
 });
 
 /***/ }),
 
-/***/ 1:
-/*!***********************************!*\
-  !*** multi ./resources/js/ddm.js ***!
-  \***********************************/
+/***/ 2:
+/*!********************************************!*\
+  !*** multi ./resources/js/product_view.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Rendszerfejlesztes\webshop\resources\js\ddm.js */"./resources/js/ddm.js");
+module.exports = __webpack_require__(/*! D:\Rendszerfejlesztes\webshop\resources\js\product_view.js */"./resources/js/product_view.js");
 
 
 /***/ })

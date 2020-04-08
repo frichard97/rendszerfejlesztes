@@ -1,214 +1,188 @@
 @extends('layouts.app')
 @push('styles')
-<link href="{{ asset('css/product_view.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/product_view.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+@endpush
+@push('scripts')
+    <script src="{{ asset('js/product_view.js') }}" defer></script>
 @endpush
 @section('content')
-<div class="container">
-
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-body">
-                <h2 class="card-title">Termék Adatai</h2>
-                <div class="row ">
-                    <img src="{{url('/images/'.$product->image)}}" alt="Image" class="col-md-4" />
-
-
-                    <div class="col-md-7 table">
-                        <div class="row">
-                            <div class="col-md-4 border-bottom border-top">
-                                <h3>Termék név</h3>
-                            </div>
-                            <div class="col-md-4 border-bottom border-top">
-                                {{$product->name}}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4 border-bottom ">
-                                <h3>Leírás</h3>
-                            </div>
-                            <div class="col-md-4 border-bottom">
-                                {{$product->description}}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4 border-bottom">
-                                <h3>Mennyiség</h3>
-                            </div>
-                            <div class="col-md-4 border-bottom">
-                                {{$product->quantity}}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4 border-bottom">
-                                <h3>Ár</h3>
-                            </div>
-                            <div class="col-md-4 border-bottom">
-                                {{$product->price}}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4 border-bottom">
-                                <h3>Létrehozva</h3>
-                            </div>
-                            <div class="col-md-4 border-bottom">
-                                {{$product->created_at}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @if(!$product->offer)
-                <div class="row" style="float:right; padding-right:2%">
-                    @if(Auth::check())
-                    @if(Auth::user()->id == $product->user_id)
-                    <button class="btn btn-primary btn-lg">
-                        Meghírdetés
-                    </button>
-                    @endif
-                    @endif
-                </div>
-                @else
-                <div class="row " style=" padding-left:2%">
-                    <div class="col-md-12">
-                        <div class="card" style="border:none">
-                            <div class="card-body ">
-                                <h2 class="card-title">Ajánlat Adatai</h2>
-                                <div class="row">
-                                    <div class="col-md-4 border-bottom border-top">
-                                        <h3>Jelenlegi ár</h3>
-                                    </div>
-                                    <div class="col-md-4 border-bottom border-top">
-                                        {{$product->offer->currentprice}}
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4 border-bottom border-top">
-                                        <h3>Státusz</h3>
-                                    </div>
-                                    <div class="col-md-4 border-bottom border-top">
-                                        {{$product->offer->status}}
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4 border-bottom border-top">
-                                        <h3>Lejárati dárum</h3>
-                                    </div>
-                                    <div class="col-md-4 border-bottom border-top">
-                                        {{$product->offer->end_date}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <div class="container">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h2 style="text-align: center">Termék Adatai</h2>
+                        <hr>
                     </div>
 
+                    <div class="row ">
+                        <div class="col-md-4">
+                            <img src="{{url('/images/'.$product->image)}}" alt="Image" class="col-md-12"/>
+                        </div>
+                        <div class="col-md-8">
+                            <table class="table">
+                                <tr>
+                                    <td><h3>Termék név:</h3></td>
+                                    <td><h3>{{$product->name}}</h3></td>
+                                </tr>
+                                <tr>
+                                    <td><h3>Leírás:</h3></td>
+                                    <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
+                                        <h5>{{$product->description}}</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><h3>Mennyiség:</h3></td>
+                                    <td><h4><strong>{{$product->quantity}}</strong></h4></td>
+                                </tr>
+                                <tr>
+                                    <td><h3>Létrehozva:</h3></td>
+                                    <td><h3>{{$product->created_at}}</h3></td>
+                                </tr>
+                                <tr>
+
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <hr>
+                    @if(!$product->offer)
+                        <div class="row" style="float:right; padding-right:2%">
+                            @if(Auth::check())
+                                @if(Auth::user()->id == $product->user_id)
+                                    <button class="btn btn-primary btn-lg">
+                                        Meghírdetés
+                                    </button>
+                                @endif
+                            @endif
+                        </div>
+                    @else
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card" style="border: none">
+                                    <div class="card-body ">
+                                        <div class="card-title" style="text-align: center"><h2 class="card-title">
+                                                Licit</h2></div>
+
+                                        <div class="row">
+                                            <table class="table">
+                                                <tr>
+                                                    <td>
+                                                        <h3>Státusz:</h3>
+                                                    </td>
+                                                    <td>
+                                                        @if($product->offer->status)
+                                                            <h3 style="color: green"><strong>Aktív</strong></h3>
+                                                        @else
+                                                            <h3 style="color: grey"><strong>Inaktív</strong></h3>
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h3>Lejárati dátum:</h3>
+                                                    </td>
+                                                    <td>
+                                                        <h3> {{$product->offer->end_date}}</h3>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default widget">
+                                    <div class="panel-heading">
+                                        <span class="fa fa-dollar fa-2x" style="color:green;"></span>
+                                        <h3 class="panel-title">
+                                            Licitek</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-xs-10 col-md-11">
+                                                        <div>
+                                                            <div class="mic-info">
+                                                                By: <a href="#">Bhaumik Patel</a> <span style="color: green; padding-left: 3%">1000Ft</span> <span style="float: right">on 2 Aug 2013</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="licit-section">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control"/>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button class=" btn btn-success btn-lg">Licit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default widget">
+                                    <div class="panel-heading" data-toggle="collapse" data-target="#demo">
+                                        <span class="fa fa-comment fa-2x" style="color:lightskyblue;"></span>
+                                        <h3 class="panel-title">
+                                            Kommentek</h3>
+                                        <span class="badge badge-primary">78</span>
+                                        <span class="fa fa-chevron-right downbutton"></span>
+                                    </div>
+                                    <div class="panel-body collapse" id="demo">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-xs-10 col-md-11">
+                                                        <div>
+                                                            <div class="mic-info">
+                                                                By: <a href="#">Bhaumik Patel</a> on 2 Aug 2013
+                                                            </div>
+                                                        </div>
+                                                        <div class="comment-text">
+                                                            asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdadasdasdasdasdasdasdasdasdasdasdasda
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="comment-section">
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <textarea class="comment-sendtext col-md-9"
+                                                              placeholder="Írj egy kommentet!" cols="30"
+                                                              rows="5"></textarea>
+                                                    <div class="col-md-1"></div>
+                                                    <button class="btn btn-primary btn-lg col-md-2"
+                                                            style="float: right">
+                                                        Küldés
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
-                <div class="row">
-        <div class="panel panel-default widget">
-            <div class="panel-heading">
-                <span class="glyphicon glyphicon-comment"></span>
-                <h3 class="panel-title">
-                    Recent Comments</h3>
-                <span class="label label-info">
-                    78</span>
-            </div>
-            <div class="panel-body">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-2 col-md-1">
-                                <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
-                            <div class="col-xs-10 col-md-11">
-                                <div>
-                                    <a href="http://www.jquery2dotnet.com/2013/10/google-style-login-page-desing-usign.html">
-                                        Google Style Login Page Design Using Bootstrap</a>
-                                    <div class="mic-info">
-                                        By: <a href="#">Bhaumik Patel</a> on 2 Aug 2013
-                                    </div>
-                                </div>
-                                <div class="comment-text">
-                                    Awesome design
-                                </div>
-                                <div class="action">
-                                    <button type="button" class="btn btn-primary btn-xs" title="Edit">
-                                        <span class="glyphicon glyphicon-pencil"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-success btn-xs" title="Approved">
-                                        <span class="glyphicon glyphicon-ok"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-xs" title="Delete">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-2 col-md-1">
-                                <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
-                            <div class="col-xs-10 col-md-11">
-                                <div>
-                                    <a href="http://bootsnipp.com/BhaumikPatel/snippets/Obgj">Admin Panel Quick Shortcuts</a>
-                                    <div class="mic-info">
-                                        By: <a href="#">Bhaumik Patel</a> on 11 Nov 2013
-                                    </div>
-                                </div>
-                                <div class="comment-text">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim
-                                </div>
-                                <div class="action">
-                                    <button type="button" class="btn btn-primary btn-xs" title="Edit">
-                                        <span class="glyphicon glyphicon-pencil"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-success btn-xs" title="Approved">
-                                        <span class="glyphicon glyphicon-ok"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-xs" title="Delete">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-2 col-md-1">
-                                <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
-                            <div class="col-xs-10 col-md-11">
-                                <div>
-                                    <a href="http://bootsnipp.com/BhaumikPatel/snippets/4ldn">Cool Sign Up</a>
-                                    <div class="mic-info">
-                                        By: <a href="#">Bhaumik Patel</a> on 11 Nov 2013
-                                    </div>
-                                </div>
-                                <div class="comment-text">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim
-                                </div>
-                                <div class="action">
-                                    <button type="button" class="btn btn-primary btn-xs" title="Edit">
-                                        <span class="glyphicon glyphicon-pencil"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-success btn-xs" title="Approved">
-                                        <span class="glyphicon glyphicon-ok"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-xs" title="Delete">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <a href="#" class="btn btn-primary btn-sm btn-block" role="button"><span class="glyphicon glyphicon-refresh"></span> More</a>
             </div>
         </div>
     </div>
-                @endif
-            </div>
-        </div>
-    </div>
-</div>
 @endsection

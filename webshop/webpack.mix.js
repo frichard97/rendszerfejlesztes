@@ -19,4 +19,5 @@ mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/products_view.scss', 'public/css')
    .sass('resources/sass/categories_view.scss', 'public/css')
    .sass('resources/sass/users_view.scss', 'public/css')
-   .sass('resources/sass/product_view.scss', 'public/css');
+   .sass('resources/sass/product_view.scss', 'public/css')
+    .js('resources/js/product_view.js','public/js');

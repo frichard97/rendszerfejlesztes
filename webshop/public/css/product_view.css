@@ -1,5 +1,5 @@
 body {
-  padding-top: 30px;
+  background: #eee;
 }
 
 .widget .panel-body {
@@ -30,7 +30,7 @@ body {
 
 .widget .mic-info {
   color: #666666;
-  font-size: 11px;
+  font-size: 20px;
 }
 
 .widget .action {
@@ -38,11 +38,25 @@ body {
 }
 
 .widget .comment-text {
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .widget .btn-block {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
+}
+
+.downbutton {
+  float: right;
+}
+
+.comment-sendtext {
+  resize: none;
+}
+
+.licit-section {
+  margin-bottom: 5%;
+  margin-top: 30%;
+  border: #eee;
 }
 

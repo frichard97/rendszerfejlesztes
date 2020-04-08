@@ -7,5 +7,6 @@
     "/css/categories_view.css": "/css/categories_view.css",
     "/css/users_view.css": "/css/users_view.css",
     "/css/product_view.css": "/css/product_view.css",
-    "/js/ddm.js": "/js/ddm.js"
+    "/js/ddm.js": "/js/ddm.js",
+    "/js/product_view.js": "/js/product_view.js"
 }
