@@ -68,6 +68,7 @@ class Kernel extends HttpKernel
         'product_is_yours' => ProductIsYours::class,
         'user_exist' => UserExist::class,
         'product_view_exists_offer' => ProductViewExistsOffer::class,
+        'is_admin' => IsAdmin::class,
     ];
 
     /**
