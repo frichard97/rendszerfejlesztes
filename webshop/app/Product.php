@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\File;
 
 class Product extends Model
 {
@@ -18,5 +19,13 @@ class Product extends Model
     }
     public function offer(){
         return $this->hasOne(Offer::class);
+    }
+    public function delete() {
+        $image_path = public_path()."\\images\\".$this->image;
+        File::delete($image_path);
+
+        $this->categories()->detach($this->categories);
+        
+        return parent::delete();
     }
 }
