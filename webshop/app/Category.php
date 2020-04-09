@@ -11,4 +11,10 @@ class Category extends Model
     public function products(){
         return $this->belongsToMany(Product::class,'product_category');
     }
+    public function delete(){
+        $products = $this->products();
+        $this->products()->detach($products);
+
+        return parent::delete();
+    }
 }
