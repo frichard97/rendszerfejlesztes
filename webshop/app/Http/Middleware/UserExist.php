@@ -15,7 +15,8 @@ class UserExist
      */
     public function handle($request, Closure $next)
     {
-        $user = User::find($request['id']);
+        $id = $request->route()->parameters()['id'];
+        $user = User::find($id);
         if($user) {
             return $next($request);
         } else {

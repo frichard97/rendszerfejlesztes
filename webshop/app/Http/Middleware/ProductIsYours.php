@@ -15,6 +15,7 @@ class ProductIsYours
      */
     public function handle($request, Closure $next)
     {
+
         $product = Product::find($request['id']);
         if ($product){
             if ($product->user->id == Auth::user()->id) {

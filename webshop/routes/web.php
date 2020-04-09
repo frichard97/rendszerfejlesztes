@@ -34,12 +34,15 @@ Route::middleware(['auth'])->group(function (){
         Route::get('/offers','OfferController@offer_view')->name('offer_view');
         Route::post('product/{id}/create_offer','OfferController@create_offer')->name('create_offer');
         //ADMIN middleware TODO
-        Route::get('/user/{id}','AdminController@user_view')->name('user_view');
-        Route::get('/users','AdminController@users_view')->name('users_view');
-        Route::get('/categories','AdminController@categories_view')->name('categories_view');
-        Route::post('/delete_category','AdminController@delete_category')->name('delete_category'); //TODO MIDDLEWARE
-        Route::post('/modify_category','AdminController@modify_category')->name('modify_category');
-        Route::post('/create_category','AdminController@create_category')->name('create_category');
+        Route::middleware(['is_admin'])->group(function (){
+            Route::get('/user/{id}','AdminController@user_view')->name('user_view')->middleware('user_exist');
+            Route::get('/users','AdminController@users_view')->name('users_view');
+            Route::get('/categories','AdminController@categories_view')->name('categories_view');
+            Route::post('/delete_category','AdminController@delete_category')->name('delete_category');
+            Route::post('/modify_category','AdminController@modify_category')->name('modify_category');
+            Route::post('/create_category','AdminController@create_category')->name('create_category');
+        });
+
     });
 
 });

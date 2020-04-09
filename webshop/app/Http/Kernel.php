@@ -5,6 +5,8 @@ namespace App\Http;
 use App\Http\Middleware\hasProfile;
 use App\Http\Middleware\NoProfile;
 use App\Http\Middleware\ProductViewExistsOffer;
+use App\Http\Middleware\IsAdmin;
+use App\Http\Middleware\UserExist;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel

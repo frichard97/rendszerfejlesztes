@@ -27,7 +27,7 @@
                                             <img src="{{url('/images/'.$product->image)}}" alt="Image"/>
                                             <a>{{$product->name}}</a>
                                         </td>
-                                        <td>kategoria1,kategoria2</td>
+                                        <td>@if(count($product->categories) != 0) @foreach($product->categories as $category){{$category->name}}, @endforeach @else <strong>-</strong> @endif</td>
                                         <td>
                                             <span>{{$product->price}}</span>
                                         </td>

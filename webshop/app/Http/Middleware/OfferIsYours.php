@@ -16,12 +16,12 @@ class OfferIsYours
     public function handle($request, Closure $next)
     {
         $offer = Offer::find($request['id']);
-        $product = Product::find($request['id']); // The id of Offer = the id of Product
+        $product = $offer->product;
         if ($offer && ($product->user_id == Auth::user()->id)) {
             return $next($request);
         } else {
-            return redirect("/"); 
+            return redirect("/");
         }
-        
+
     }
 }
