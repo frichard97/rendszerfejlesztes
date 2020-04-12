@@ -19,27 +19,45 @@
                 <div class="form-group row">
                     <label class="col-4 col-form-label">Termék neve*</label>
                     <div class="col-4">
-                        <input name="name" placeholder="" class="form-control here " required="required" type="text">
-
+                        <input name="name" placeholder="Termék neve" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" required="required" type="text">
+                        @if ($errors->has('name'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('name') }}</strong>
+                        </span>
+                        @endif
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-4 col-form-label">Termék Leírás*</label>
                     <div class="col-4">
-                        <textarea name="description" placeholder="" class="form-control here" required="required" type="text"></textarea>
+                        <textarea name="description" placeholder="Termék Leírás" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" required="required" type="text"></textarea>
+                        @if ($errors->has('description'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('description') }}</strong>
+                        </span>
+                        @endif
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-4 col-form-label">Termék ára*</label>
                     <div class="col-4">
-                        <input name="price" placeholder="" class="form-control here " required="required" type="text">
-
+                        <input name="price" placeholder="Termék ára" class="form-control{{ $errors->has('price') ? ' is-invalid' : '' }}" required="required" type="text">
+                        @if ($errors->has('price'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('price') }}</strong>
+                        </span>
+                        @endif
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-4 col-form-label">Termék Mennyisége*</label>
                     <div class="col-4">
-                        <input name="quantity" placeholder="" class="form-control here" quantity type="text">
+                        <input name="quantity" placeholder="Termék Mennyisége" class="form-control{{ $errors->has('quantity') ? ' is-invalid' : '' }}" required="required" quantity type="text">
+                        @if ($errors->has('quantity'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('quantity') }}</strong>
+                        </span>
+                        @endif
                     </div>
                 </div>
                 <div class="form-group row">
@@ -53,9 +71,14 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="image" class="col-4 col-form-label">Fénykép feltöltése</label>
+                    <label for="image" class="col-4 col-form-label">Fénykép feltöltése*</label>
                     <div class="col-md-4">
-                        <input type="file" name="image" class="form-control">
+                        <input type="file" name="image" class="form-control{{ $errors->has('image') ? ' is-invalid' : '' }}" required="required">
+                        @if ($errors->has('image'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('image') }}</strong>
+                        </span>
+                        @endif
                     </div>
                 </div>
                 <div class="form-group row">

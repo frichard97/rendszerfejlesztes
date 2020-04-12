@@ -13,18 +13,18 @@
                         <table class="table user-list">
                             <thead>
                                 <tr>
-                                <th><span>Termék</span></th>
-                                <th><span>Lejárat</span></th>
-                                <th class="text-center"><span>Állapot</span></th>
-                                <th><span>Aktuális ár</span></th>
-                                <th>&nbsp;</th>
+                                    <th><span>Termék</span></th>
+                                    <th><span>Lejárat</span></th>
+                                    <th class="text-center"><span>Állapot</span></th>
+                                    <th><span>Aktuális ár</span></th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach($offers as $offer)
+                                @foreach($offers as $offer)
                                 <tr>
                                     <td>
-                                        
+
                                         <a>{{$offer->product->name}}</a>
                                     </td>
                                     <td>{{$offer->end_date}}</td>
@@ -35,23 +35,14 @@
                                         <a href="#">{{$offer->currentprice}}</a>
                                     </td>
                                     <td style="width: 20%;">
-                                        <a href="#" class="table-link">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-                                            </span>
+                                        <a href="#">
+                                            <span class="fa fa-search-plus fa-3x"></span>
                                         </a>
-                                        <a href="#" class="table-link">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                            </span>
+                                        <a href="#">
+                                            <span class="fa fa-pencil fa-3x"></span>
                                         </a>
                                         <a href="#" class="table-link danger">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                            </span>
+                                            <span class="fa fa-trash-o fa-3x"></span>
                                         </a>
                                     </td>
                                 </tr>
