@@ -32,24 +32,17 @@
                                             <span>{{$product->price}}</span>
                                         </td>
                                         <td style="width: 20%;">
-                                            <a href="#" class="table-link">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-                                            </span>
+                               
+                                            <a href="#">
+                                                <span class="fa fa-search-plus fa-3x"></span>
                                             </a>
-                                            <a href="#" class="table-link">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                            </span>
+                                            <a href="#">
+                                                <span class="fa fa-pencil fa-3x"></span>
                                             </a>
                                             <a href="#" class="table-link danger">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                            </span>
+                                                <span class="fa fa-trash-o fa-3x"></span>
                                             </a>
+                                            
                                         </td>
                                     </tr>
                                 @endforeach
