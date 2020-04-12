@@ -50,7 +50,6 @@ class ProductController extends Controller
                 'image' => ['required','image','max:2048'],
         ]);
         if($validator->fails()){
-            dd($validator);
             return back()->withErrors($validator);
         }
         else
