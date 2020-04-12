@@ -13,6 +13,11 @@
         <h1>{{session('failed')}}</h1>
     </div>
     @endif
+    @if(session('info'))
+    <div class="alert alert-info">
+    <h1>{{session('info')}}</h1>
+</div>
+@endif
     <div class="col-md12">
         <div class="row">
             <div class="col-md-6">
@@ -139,24 +144,36 @@
                             <label for="current_password" class="col-md-6 col-form-label text-md-right">{{ __('Aktuális jelszó') }}</label>
 
                             <div class="col-md-4">
-                                <input id="current_password" type="current_password" class="form-control{{ $errors->has('current_password') ? ' is-invalid' : '' }}" name="current_password" required>
-
+                                <input id="current_password" type="password" class="form-control{{ $errors->has('current_password') ? ' is-invalid' : '' }}" name="current_password" required>
+                                @if ($errors->has('current_password'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('current_password') }}</strong>
+                                        </span>
+                                        @endif
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="new_password" class="col-md-6 col-form-label text-md-right">{{ __('Új jelszó') }}</label>
 
                             <div class="col-md-4">
-                                <input id="new_password" type="new_password" class="form-control{{ $errors->has('new_password') ? ' is-invalid' : '' }}" name="new_password" required>
-
+                                <input id="new_password" type="password" class="form-control{{ $errors->has('new_password') ? ' is-invalid' : '' }}" name="new_password" required>
+                                @if ($errors->has('new_password'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('new_password') }}</strong>
+                                        </span>
+                                        @endif
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="new_password_again" class="col-md-6 col-form-label text-md-right">{{ __('Új jelszó mégegyszer') }}</label>
 
                             <div class="col-md-4">
-                                <input id="new_password_again" type="new_password_again" class="form-control{{ $errors->has('new_password_again') ? ' is-invalid' : '' }}" name="new_password_again" required>
-
+                                <input id="new_password_again" type="password" class="form-control{{ $errors->has('new_password_again') ? ' is-invalid' : '' }}" name="new_password_again" required>
+                                @if ($errors->has('new_password_again'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('new_password_again') }}</strong>
+                                        </span>
+                                        @endif
                             </div>
                             <div class="container">
                                 <button type="submit" class="btn btn-primary">
