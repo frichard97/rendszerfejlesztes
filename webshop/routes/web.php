@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('offers_view');
+    $offers = App\Offer::all();
+    return view('offers_view',['offers' => $offers]);
 })->middleware('no_profile');
 
 Auth::routes();
