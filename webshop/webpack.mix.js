@@ -20,5 +20,6 @@ mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/categories_view.scss', 'public/css')
    .sass('resources/sass/users_view.scss', 'public/css')
    .sass('resources/sass/product_view.scss', 'public/css')
+    .sass('resources/sass/profile_view.scss','public/css')
    .js('resources/js/product_view.js','public/js')
    .js('resources/js/make_offer.js','public/js');

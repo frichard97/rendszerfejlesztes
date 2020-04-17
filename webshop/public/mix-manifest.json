@@ -7,6 +7,8 @@
     "/css/categories_view.css": "/css/categories_view.css",
     "/css/users_view.css": "/css/users_view.css",
     "/css/product_view.css": "/css/product_view.css",
+    "/css/profile_view.css": "/css/profile_view.css",
     "/js/ddm.js": "/js/ddm.js",
+    "/js/make_offer.js": "/js/make_offer.js",
     "/js/product_view.js": "/js/product_view.js"
 }
