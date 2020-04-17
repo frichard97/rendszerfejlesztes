@@ -103,7 +103,7 @@ $(document).ready(function () {
       $('.downbutton').addClass('fa fa-chevron-right');
     }
   });
-  setInterval(kommentTimer, 5000);
+  setInterval(kommentTimer, 3000);
 
   function kommentTimer() {
     $.post("/product/get_comment", {
