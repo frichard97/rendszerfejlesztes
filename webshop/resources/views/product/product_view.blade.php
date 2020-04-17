@@ -195,7 +195,7 @@
                                     </div>
                                 </div>
                                 <ul class="list-group" id="addcomment">
-                                    @foreach($product->offer->comments as $comments)
+                                    @foreach($product->offer->comments()->get()->sortByDesc('created_at') as $comments)
                                     <li class="list-group-item">
                                         <div class="row">
                                             <div class="col-xs-10 col-md-11">
