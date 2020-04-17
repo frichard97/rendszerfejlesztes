@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -97,14 +97,14 @@
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!******************************************!*\
   !*** multi ./resources/js/make_offer.js ***!
   \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Rendszerfejlesztes\webshop\resources\js\make_offer.js */"./resources/js/make_offer.js");
+module.exports = __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\js\make_offer.js */"./resources/js/make_offer.js");
 
 
 /***/ })

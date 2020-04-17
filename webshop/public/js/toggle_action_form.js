@@ -81,32 +81,34 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/ddm.js":
-/*!*****************************!*\
-  !*** ./resources/js/ddm.js ***!
-  \*****************************/
+/***/ "./resources/js/toggle_action_form.js":
+/*!********************************************!*\
+  !*** ./resources/js/toggle_action_form.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-  $('.js-example-basic-multiple').select2();
+  $("#toggle").change(function () {
+    $("#proba").toggle();
+  });
 });
 
 /***/ }),
 
-/***/ 1:
-/*!***********************************!*\
-  !*** multi ./resources/js/ddm.js ***!
-  \***********************************/
+/***/ 2:
+/*!**************************************************!*\
+  !*** multi ./resources/js/toggle_action_form.js ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\js\ddm.js */"./resources/js/ddm.js");
+module.exports = __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\js\toggle_action_form.js */"./resources/js/toggle_action_form.js");
 
 
 /***/ })
