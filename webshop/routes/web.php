@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/product/{id}','ProductController@product_view')->name('product_view')->middleware('no_profile')->middleware('product_view_exists_offer');
+Route::post('/product/get_comment','OfferController@get_comment')->name('get_comment');
 
 
 Route::middleware(['auth'])->group(function (){
@@ -33,6 +34,7 @@ Route::middleware(['auth'])->group(function (){
         Route::get('product/{id}/make_offer','ProductController@make_offer_view')->name('make_offer_view');
         Route::get('/offers','OfferController@offer_view')->name('offer_view');
         Route::post('product/{id}/create_offer','OfferController@create_offer')->name('create_offer');
+        Route::post('product/new_comment','OfferController@new_comment')->name('new_comment');
         //ADMIN middleware TODO
         Route::middleware(['is_admin'])->group(function (){
             Route::get('/user/{id}','AdminController@user_view')->name('user_view')->middleware('user_exist');

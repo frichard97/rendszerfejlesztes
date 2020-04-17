@@ -15,6 +15,7 @@ class AdminController extends Controller
 {
     public function user_view($id)
     {
+
         return view('user/user_view');
     }
 
@@ -32,7 +33,7 @@ class AdminController extends Controller
 
     public function delete_category(Request $request)
     {
-        
+
     }
 
     public function modify_category(Request $request)

@@ -35,7 +35,7 @@
                                         <a href="#">{{$offer->currentprice}}</a>
                                     </td>
                                     <td style="width: 20%;">
-                                        <a href="#">
+                                        <a href="{{route('product_view',$offer->product_id)}}">
                                             <span class="fa fa-search-plus fa-3x"></span>
                                         </a>
                                         <a href="#">

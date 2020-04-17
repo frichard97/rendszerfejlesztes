@@ -103,7 +103,7 @@ class UserController extends Controller
             Session::flash('success', 'Sikeres módosult(ak) az adat(ok)!');
         }
         else{
-            Session::flash('failed','Nem történt adatmódosítás');
+            Session::flash('info','Nem történt adatmódosítás');
         }
         return back();
     }
