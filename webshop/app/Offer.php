@@ -20,4 +20,8 @@ class Offer extends Model
     public function product(){
         return $this->belongsTo(Product::class);
     }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class,'offer_id','product_id');
+    }
 }
