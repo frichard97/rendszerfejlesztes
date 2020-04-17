@@ -7,21 +7,22 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
 <div class="row">
+@foreach($offers as $o)
     <div class="col-md-3">
         <div class="ibox">
             <div class="ibox-content product-box">
                 <div class="product-imitation">
-                    [ INFO ]
+                <img src="{{url('/images/'.$o->product->image)}}" alt="Image" style="width:100px;height:100px;"/>
                 </div>
                 <div class="product-desc">
                     <span class="product-price">
-                        $10
+                        {{$o->currentprice}}
                     </span>
-                    <small class="text-muted">Category</small>
-                    <a href="#" class="product-name"> Product</a>
+                    <small class="text-muted">@foreach($o->product->categories as $c) {{$c->name}}@endforeach</small>
+                    <a href="#" class="product-name"> {{$o->product->name}}</a>
 
                     <div class="small m-t-xs">
-                        Many desktop publishing packages and web page editors now.
+                    {{$o->product->description}}
                     </div>
                     <div class="m-t text-righ">
 
@@ -31,6 +32,7 @@
             </div>
         </div>
     </div>
+    @endforeach
     
 </div>
 </div>

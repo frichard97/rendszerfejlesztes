@@ -81,32 +81,52 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/ddm.js":
-/*!*****************************!*\
-  !*** ./resources/js/ddm.js ***!
-  \*****************************/
+/***/ "./resources/js/whitelist.js":
+/*!***********************************!*\
+  !*** ./resources/js/whitelist.js ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(document).ready(function () {
-  $('.js-example-basic-multiple').select2();
+$(function () {
+  $('#add').click(function () {
+    var newTask = $('#Input').val();
+
+    if (newTask !== '') {
+      var count = $("#whitelist").children().length;
+      $('#whitelist').append('<li class="list-group-item deletetask bg-success">' + newTask + '</li>');
+      $('#Input').val('');
+      deleteTasks();
+      setTimeout(function () {
+        $('#whitelist li.bg-success').removeClass('bg-success');
+      }, 1000);
+    } else {
+      alert('Come on, you\'re better than that');
+    }
+  });
 });
+
+function deleteTasks() {
+  $('.deletetask').click(function () {
+    $(this).remove();
+  });
+}
 
 /***/ }),
 
-/***/ 1:
-/*!***********************************!*\
-  !*** multi ./resources/js/ddm.js ***!
-  \***********************************/
+/***/ 3:
+/*!*****************************************!*\
+  !*** multi ./resources/js/whitelist.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\js\ddm.js */"./resources/js/ddm.js");
+module.exports = __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\js\whitelist.js */"./resources/js/whitelist.js");
 
 
 /***/ })
