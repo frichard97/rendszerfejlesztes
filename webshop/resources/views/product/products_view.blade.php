@@ -3,6 +3,9 @@
     <link href="{{ asset('css/products_view.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 @endpush
+@push('scripts')
+    <script src="{{asset('js/products_view.js')}} " defer></script>
+    @endpush
 @section('content')
 
     <div class="container">
@@ -32,17 +35,17 @@
                                             <span>{{$product->price}}</span>
                                         </td>
                                         <td style="width: 20%;">
-                               
-                                            <a href="#">
+
+                                            <a href="{{route('product_view',$product->id)}}">
                                                 <span class="fa fa-search-plus fa-3x"></span>
                                             </a>
                                             <a href="#">
                                                 <span class="fa fa-pencil fa-3x"></span>
                                             </a>
-                                            <a href="#" class="table-link danger">
+                                            <a href="javascript:delete_product({{$product->id}})" class="table-link danger">
                                                 <span class="fa fa-trash-o fa-3x"></span>
                                             </a>
-                                            
+
                                         </td>
                                     </tr>
                                 @endforeach
@@ -57,5 +60,9 @@
             Termék hozzáadása
         </a>
     </div>
+    <form id="deleteform" method="POST" action="{{route('delete_product')}}" style="display: none">
+        @csrf
+        <input id="id" name="id"/>
+    </form>
 
 @endsection

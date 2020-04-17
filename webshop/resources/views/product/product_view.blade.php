@@ -5,6 +5,10 @@
 @endpush
 @push('scripts')
 <script src="{{ asset('js/product_view.js') }}" defer></script>
+    <script>
+        let id = {{$product->id}}
+        @if($product->offer)let comment_number = {{count($product->offer->comments)}} @endif
+    </script>
 @endpush
 @section('content')
 <div class="container">
@@ -175,37 +179,40 @@
                                 <span class="fa fa-comment fa-2x" style="color:lightskyblue;"></span>
                                 <h3 class="panel-title">
                                     Kommentek</h3>
-                                <span class="badge badge-primary">78</span>
+                                <span class="badge badge-primary" id="comment_count">{{count($product->offer->comments)}}</span>
                                 <span class="fa fa-chevron-right downbutton"></span>
                             </div>
                             <div class="panel-body collapse" id="demo">
-                                <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-xs-10 col-md-11">
-                                                <div>
-                                                    <div class="mic-info">
-                                                        By: <a href="#">Bhaumik Patel</a> on 2 Aug 2013
-                                                    </div>
-                                                </div>
-                                                <div class="comment-text">
-                                                    asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdadasdasdasdasdasdasdasdasdasdasdasda
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
                                 <div class="comment-section">
                                     <div class="col-md-12">
                                         <div class="row">
-                                            <textarea class="comment-sendtext col-md-9" placeholder="Írj egy kommentet!" cols="30" rows="5"></textarea>
+                                            <textarea id="comment-message" class="comment-sendtext col-md-9" placeholder="Írj egy kommentet!" cols="30" rows="5"></textarea>
                                             <div class="col-md-1"></div>
-                                            <button class="btn btn-primary btn-lg col-md-2" style="float: right">
+                                            <button class="btn btn-primary btn-lg col-md-2" style="float: right" onclick="new_comment({{$product->id}})">
                                                 Küldés
                                             </button>
                                         </div>
                                     </div>
                                 </div>
+                                <ul class="list-group" id="addcomment">
+                                    @foreach($product->offer->comments as $comments)
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-xs-10 col-md-11">
+                                                <div>
+                                                    <div class="mic-info">
+                                                        By: <a href="#">{{$comments->user->profile->getFullName()}}</a> <span style="float: right"> {{$comments->created_at}}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="comment-text">
+                                                    {{$comments->message}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                        @endforeach
+                                </ul>
+
                             </div>
                         </div>
                     </div>
