@@ -33,7 +33,15 @@ class AdminController extends Controller
 
     public function delete_category(Request $request)
     {
+        $category = Category::find($request['id']);
+        if($category){
+            $category->delete();
 
+            Session::flash('success','Sikeres Kategória tölrés');
+            return back();
+        }
+        Session::flash('failed','Sikertelen Kategória törlés');
+        return back();
     }
 
     public function modify_category(Request $request)
