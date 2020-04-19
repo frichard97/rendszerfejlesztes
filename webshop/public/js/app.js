@@ -49544,6 +49544,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/user_view.scss":
+/*!***************************************!*\
+  !*** ./resources/sass/user_view.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/users_view.scss":
 /*!****************************************!*\
   !*** ./resources/sass/users_view.scss ***!
@@ -49556,14 +49567,15 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/offer_view.scss ./resources/sass/offers_view.scss ./resources/sass/products_view.scss ./resources/sass/categories_view.scss ./resources/sass/users_view.scss ./resources/sass/product_view.scss ./resources/sass/profile_view.scss ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/user_view.scss ./resources/sass/offer_view.scss ./resources/sass/offers_view.scss ./resources/sass/products_view.scss ./resources/sass/categories_view.scss ./resources/sass/users_view.scss ./resources/sass/product_view.scss ./resources/sass/profile_view.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\js\app.js */"./resources/js/app.js");
 __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\sass\user_view.scss */"./resources/sass/user_view.scss");
 __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\sass\offer_view.scss */"./resources/sass/offer_view.scss");
 __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\sass\offers_view.scss */"./resources/sass/offers_view.scss");
 __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\sass\products_view.scss */"./resources/sass/products_view.scss");

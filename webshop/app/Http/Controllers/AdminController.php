@@ -15,8 +15,8 @@ class AdminController extends Controller
 {
     public function user_view($id)
     {
-
-        return view('user/user_view');
+        $user=User::find($id);
+        return view('user/user_view',['user' => $user]);
     }
 
     public function users_view()
