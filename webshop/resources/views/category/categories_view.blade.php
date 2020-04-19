@@ -2,6 +2,7 @@
 @push('styles')
 <link href="{{ asset('css/categories_view.css') }}" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+<script src="{{asset('js/categories_view.js')}} " defer></script>
 @endpush
 @section('content')
 
@@ -48,15 +49,15 @@
                                         <span>{{$category->created_at}}</span>
                                     </td>
                                     <td style="width: 20%;">
-                                    <a href="#">
-                                                <span class="fa fa-search-plus fa-3x"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="fa fa-pencil fa-3x"></span>
-                                            </a>
-                                            <a href="#" class="table-link danger">
-                                                <span class="fa fa-trash-o fa-3x"></span>
-                                            </a>
+                                        <a href="#">
+                                            <span class="fa fa-search-plus fa-3x"></span>
+                                        </a>
+                                        <a href="#">
+                                            <span class="fa fa-pencil fa-3x"></span>
+                                        </a>
+                                        <a href="javascript:delete_category({{$category->id}})" class="table-link danger">
+                                            <span class="fa fa-trash-o fa-3x"></span>
+                                        </a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -104,5 +105,9 @@
         </div>
     </div>
 </div>
+<form id="deleteform" method="POST" action="{{route('delete_category')}}" style="display: none">
+        @csrf
+        <input id="id" name="id"/>
+    </form>
 
 @endsection
