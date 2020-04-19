@@ -41,9 +41,6 @@
                                         <a href="#">
                                             <span class="fa fa-pencil fa-3x"></span>
                                         </a>
-                                        <a href="#" class="table-link danger">
-                                            <span class="fa fa-trash-o fa-3x"></span>
-                                        </a>
                                     </td>
                                 </tr>
                                 @endforeach
