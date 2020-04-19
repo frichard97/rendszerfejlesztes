@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Licit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Offer;
@@ -81,6 +82,73 @@ class OfferController extends Controller
                 ]);
             }
             return $returndata->all();
+        }
+    }
+    public function new_licit(Request $request)
+    {
+        $validator = Validator::make($request->all(),[
+            'id' => 'required',
+            'price' => 'required|numeric',
+
+        ]);
+        if($validator->fails())
+        {
+            return "nok";
+        }
+        else
+        {
+            $licit = Offer::find($request['id'])->licits()->get();
+            if(count($licit) != 0)
+            {
+                $licit = $licit->sortByDesc('price')->first();
+                if($licit->price >= $request['price'])
+                {
+                    return "nok";
+                }
+                else {
+                    Licit::create([
+                        'offer_id' => $request['id'],
+                        'user_id' => Auth::user()->id,
+                        'price' => $request['price']
+                    ]);
+                    return "OK";
+                }
+            }
+            else
+            {
+                Licit::create([
+                    'offer_id' => $request['id'],
+                    'user_id' => Auth::user()->id,
+                    'price' => $request['price']
+                ]);
+                return "OK";
+            }
+
+        }
+
+    }
+    public function get_licit(Request $request)
+    {
+        if($request['type'] == "phase1") {
+            $offer = Offer::find($request['id']);
+            $licits = $offer->licits;
+            return count($licits);
+        }
+        if($request['type'] == "phase2"){
+            $offer = Offer::find($request['id']);
+            $licit_count = count($offer->licits);
+            $frontend_count = $request['licit_number'];
+            $sorted = $offer->licits()->get()->sortByDesc('created_at')->take($licit_count - $frontend_count);
+            $returndata = collect();
+            foreach($sorted as $s)
+            {
+                $returndata->push([
+                   'user' => $s->user->profile->getFullName(),
+                   'price' => $s->price,
+                   'date' => $s->created_at,
+                ]);
+            }
+            return $returndata;
         }
     }
 }

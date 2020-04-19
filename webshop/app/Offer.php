@@ -24,4 +24,7 @@ class Offer extends Model
     {
         return $this->hasMany(Comment::class,'offer_id','product_id');
     }
+    public function licits(){
+        return $this->hasMany(Licit::class,'offer_id','product_id');
+    }
 }

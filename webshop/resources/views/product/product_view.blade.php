@@ -6,8 +6,10 @@
 @push('scripts')
 <script src="{{ asset('js/product_view.js') }}" defer></script>
     <script>
-        let id = {{$product->id}}
-        @if($product->offer)let comment_number = {{count($product->offer->comments)}} @endif
+        let id = {{$product->id}};
+        @if($product->offer)let comment_number = {{count($product->offer->comments)}}; @endif
+            @if($product->offer)let licit_number = {{count($product->offer->licits)}}; @endif
+
     </script>
 @endpush
 @section('content')
@@ -139,28 +141,33 @@
                                     Licitek</h3>
                             </div>
                             <div class="panel-body">
-                                <ul class="list-group">
-                                    <li class="list-group-item">
+                                <ul class="list-group" id="add_licit">
+                                    @php
+                                    $i = 1;
+                                    @endphp
+                                    @foreach($product->offer->licits()->get()->sortByDesc('created_at')->take(10) as $licit)
+                                    <li class="list-group-item" id="licit{{$i++}}">
                                         <div class="row">
                                             <div class="col-xs-10 col-md-11">
                                                 <div>
                                                     <div class="mic-info">
-                                                        By: <a href="#">Bhaumik Patel</a> <span style="color: green; padding-left: 3%">1000Ft</span> <span style="float: right">on 2 Aug 2013</span>
+                                                        By: <a href="#">{{$licit->user->profile->getFullName()}}</a> <span style="color: green; padding-left: 3%">{{$licit->price}} Ft</span> <span style="float: right">{{$licit->created_at}}</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
+                                        @endforeach
                                 </ul>
                             </div>
                             <div class="licit-section">
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-8">
-                                            <input type="text" class="form-control" />
+                                            <input id="licit_price" type="text" class="form-control" />
                                         </div>
                                         <div class="col-md-4">
-                                            <button class=" btn btn-success btn-lg">Licit</button>
+                                            <button class=" btn btn-success btn-lg" onclick="new_licit({{$product->id}})">Licit</button>
                                         </div>
                                     </div>
                                 </div>

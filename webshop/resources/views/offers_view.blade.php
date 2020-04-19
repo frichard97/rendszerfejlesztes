@@ -12,7 +12,7 @@
         <div class="ibox">
             <div class="ibox-content product-box">
                 <div class="product-imitation">
-                <img src="{{url('/images/'.$o->product->image)}}" alt="Image" style="width:100px;height:100px;"/>
+                <img class="col-md-12" src="{{url('/images/'.$o->product->image)}}" alt="Image"/>
                 </div>
                 <div class="product-desc">
                     <span class="product-price">
@@ -33,7 +33,7 @@
         </div>
     </div>
     @endforeach
-    
+
 </div>
 </div>
 @endsection

@@ -104,7 +104,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\js\make_offer.js */"./resources/js/make_offer.js");
+module.exports = __webpack_require__(/*! D:\Rendszerfejlesztes\webshop\resources\js\make_offer.js */"./resources/js/make_offer.js");
 
 
 /***/ })

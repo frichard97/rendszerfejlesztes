@@ -126,7 +126,7 @@ function deleteTasks() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\js\whitelist.js */"./resources/js/whitelist.js");
+module.exports = __webpack_require__(/*! D:\Rendszerfejlesztes\webshop\resources\js\whitelist.js */"./resources/js/whitelist.js");
 
 
 /***/ })
