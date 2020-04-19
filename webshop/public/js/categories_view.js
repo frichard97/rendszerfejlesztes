@@ -81,35 +81,35 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/products_view.js":
-/*!***************************************!*\
-  !*** ./resources/js/products_view.js ***!
-  \***************************************/
+/***/ "./resources/js/categories_view.js":
+/*!*****************************************!*\
+  !*** ./resources/js/categories_view.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 $(document).ready(function () {});
 
-window.delete_product = function (id) {
+window.delete_category = function (id) {
   $("#id").val(id);
   $("#deleteform").submit();
 };
 
 /***/ }),
 
-/***/ 6:
-/*!*********************************************!*\
-  !*** multi ./resources/js/products_view.js ***!
-  \*********************************************/
+/***/ 7:
+/*!***********************************************!*\
+  !*** multi ./resources/js/categories_view.js ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\js\products_view.js */"./resources/js/products_view.js");
+module.exports = __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\js\categories_view.js */"./resources/js/categories_view.js");
 
 
 /***/ })
