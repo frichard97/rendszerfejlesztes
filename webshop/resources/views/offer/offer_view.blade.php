@@ -29,7 +29,13 @@
                                     </td>
                                     <td>{{$offer->end_date}}</td>
                                     <td class="text-center">
-                                        <span class="label label-default">{{$offer->status}}</span>
+                                        <span class="label label-default">
+                                            @if($offer->end_date > Carbon::now())
+                                                <span style="color: green">Aktív</span>
+                                                @else
+                                            <span style="color: gray">Inaktív</span>
+                                                @endif
+                                        </span>
                                     </td>
                                     <td>
                                         <a href="#">{{$offer->currentprice}}</a>

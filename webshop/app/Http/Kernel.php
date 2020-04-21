@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\hasProfile;
+use App\Http\Middleware\LicitOutDate;
 use App\Http\Middleware\NoProfile;
 use App\Http\Middleware\ProductViewExistsOffer;
 use App\Http\Middleware\IsAdmin;
@@ -72,6 +73,7 @@ class Kernel extends HttpKernel
         'product_view_exists_offer' => ProductViewExistsOffer::class,
         'is_admin' => IsAdmin::class,
         'offer_is_yours' => OfferIsYours::class,
+        'licit_is_outdate' => LicitOutDate::class,
     ];
 
     /**

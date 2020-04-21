@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function (){
         Route::get('/offers','OfferController@offer_view')->name('offer_view');
         Route::post('product/{id}/create_offer','OfferController@create_offer')->name('create_offer');
         Route::post('product/new_comment','OfferController@new_comment')->name('new_comment');
-        Route::post('product/new_licit','OfferController@new_licit')->name('new_licit');
+        Route::post('product/new_licit','OfferController@new_licit')->name('new_licit')->middleware('licit_is_outdate');
         //ADMIN middleware TODO
         Route::middleware(['is_admin'])->group(function (){
             Route::get('/user/{id}','AdminController@user_view')->name('user_view')->middleware('user_exist');

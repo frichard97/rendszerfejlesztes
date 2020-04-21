@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Licit;
+use App\Product;
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Offer;
@@ -20,20 +22,19 @@ class OfferController extends Controller
         $validator = Validator::make($request->all(),[
             'end_date' => 'required',
             'visibility' =>'required',
-            'currentprice' => 'required',
-            'status' => 'required'
         ]);
          if($validator->fails()){
              return back()->withErrors($validator);
         }
         else
         {
+            $product = Product::find($product_id);
+            $visibility = $request['visibility'] == "on" ? 1: 0;
             Offer::create([
                 'product_id' => $product_id,
                 'end_date' => $request['end_date'],
-                'visibility' => $request['visibility'],
-                'currentprice' => 0,
-                'status' => $request['status']
+                'visibility' => $visibility,
+                'currentprice' => $product->price/2,
         ]);
         return redirect('/');
         }

@@ -2,9 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use App\Offer;
+use Carbon\Carbon;
 use Closure;
-use App\User;
-class UserExist
+
+class LicitOutDate
 {
     /**
      * Handle an incoming request.
@@ -16,11 +18,13 @@ class UserExist
     public function handle($request, Closure $next)
     {
         $id = $request->route()->parameters()['id'];
-        $user = User::find($id);
-        if($user) {
+        $offer = Offer::find($id);
+        if($offer->end_date > Carbon::now()) {
             return $next($request);
-        } else {
-            return redirect("/");
+        }
+        else
+        {
+            return "nok";
         }
     }
 }

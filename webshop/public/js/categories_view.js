@@ -109,7 +109,7 @@ window.delete_category = function (id) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\József\Desktop\rendszerfejlesztes\webshop\resources\js\categories_view.js */"./resources/js/categories_view.js");
+module.exports = __webpack_require__(/*! D:\Rendszerfejlesztes\webshop\resources\js\categories_view.js */"./resources/js/categories_view.js");
 
 
 /***/ })

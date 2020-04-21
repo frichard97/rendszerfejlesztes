@@ -21,7 +21,7 @@ class ProductController extends Controller
         return view('product/make_product_view',['categories' => $categories]);
     }
     public function make_offer_view($id){
-        return view('offer/make_offer_view');
+        return view('offer/make_offer_view',['product_id' =>$id]);
     }
 
     public function delete_product(Request $request)
@@ -68,7 +68,7 @@ class ProductController extends Controller
                 'image' => $imageName,
             ]);
             $product->categories()->attach($categories);
-            return redirect('/');
+            return redirect()->route('products_view');
         }
     }
 

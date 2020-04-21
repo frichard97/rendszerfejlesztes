@@ -81,35 +81,83 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/products_view.js":
-/*!***************************************!*\
-  !*** ./resources/js/products_view.js ***!
-  \***************************************/
+/***/ "./resources/js/licit.js":
+/*!*******************************!*\
+  !*** ./resources/js/licit.js ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(document).ready(function () {});
+$(document).ready(function () {
+  setInterval(licitTimer, 700);
 
-window.delete_product = function (id) {
-  $("#id").val(id);
-  $("#deleteform").submit();
+  function licitTimer() {
+    $.post("/product/get_licit", {
+      '_token': $('meta[name=csrf-token]').attr('content'),
+      'id': id,
+      'licit_number': licit_number,
+      type: "phase1"
+    }).done(function (data) {
+      console.log(data, licit_number);
+
+      if (data > licit_number) {
+        $.post("/product/get_licit", {
+          '_token': $('meta[name=csrf-token]').attr('content'),
+          'id': id,
+          'licit_number': licit_number,
+          'type': "phase2"
+        }).done(function (data) {
+          console.log(data);
+          data.forEach(function (item) {
+            $("#licit10").remove();
+            var max = 0;
+
+            if (licit_number >= 10) {
+              max = 10;
+            } else {
+              max = licit_number;
+            }
+
+            for (var i = max; i >= 1; i--) {
+              $("#licit" + i).attr("id", "licit" + (i + 1));
+            }
+
+            var div = $.parseHTML("<li class='list-group-item' id='licit1'><div class='row'><div class='col-xs-10 col-md-11'><div><div class='mic-info'>By: <a href='#'>" + item['user'] + "</a> <span style='color: green; padding-left: 3%'>" + item['price'] + "Ft</span> <span style='float: right'>" + item['date']['date'].split('.')[0] + "</span></div></div></div></div></li>");
+            licit_number++;
+            $("#add_licit").prepend(div);
+          });
+        });
+      }
+    });
+  }
+});
+
+window.new_licit = function (id) {
+  $.post("/product/new_licit", {
+    '_token': $('meta[name=csrf-token]').attr('content'),
+    'id': id,
+    'price': $('#licit_price').val()
+  }).done(function (data) {
+    console.log(data);
+  });
+  $("#comment-message").val(null);
 };
 
 /***/ }),
 
-/***/ 6:
-/*!*********************************************!*\
-  !*** multi ./resources/js/products_view.js ***!
-  \*********************************************/
+/***/ 8:
+/*!*************************************!*\
+  !*** multi ./resources/js/licit.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Rendszerfejlesztes\webshop\resources\js\products_view.js */"./resources/js/products_view.js");
+module.exports = __webpack_require__(/*! D:\Rendszerfejlesztes\webshop\resources\js\licit.js */"./resources/js/licit.js");
 
 
 /***/ })

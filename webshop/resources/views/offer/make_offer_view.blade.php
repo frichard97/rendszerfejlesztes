@@ -13,15 +13,15 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h2 class="card-title">Offer</h2>
-            <form method="POST" action="{{route('create_offer',1)}}" enctype="multipart/form-data">
+            <h2 class="card-title">Ajánlat</h2>
+            <form method="POST" action="{{route('create_offer',$product_id)}}" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group row">
                     <label class="col-4 col-form-label">Lejárati dátum</label>
                     <div class="col-4">
 
-                        <input name="end_date" placeholder="" class="form-control{{ $errors->has('end_date') ? ' is-invalid' : '' }}" required="required" type="date">
+                        <input name="end_date" placeholder="" class="form-control{{ $errors->has('end_date') ? ' is-invalid' : '' }}" required="required" type="datetime-local">
                         @if ($errors->has('end_date'))
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('end_date') }}</strong>
@@ -32,7 +32,7 @@
                 <div class="form-group row">
                     <label class="col-4 col-form-label">Láthatóság</label>
                     <div class="col-4">
-                        <input type="checkbox" data-toggle="toggle" data-on="Enabled" data-off="Disabled" id="toggle" data-onstyle="info" data-offstyle="danger" data-width="100">
+                        <input name="visibility" type="checkbox" data-toggle="toggle" data-on="Enabled" data-off="Disabled" id="toggle" data-onstyle="info" data-offstyle="danger" data-width="100">
                         <script>
                             $(function() {
                                 $('#toggle').bootstrapToggle({

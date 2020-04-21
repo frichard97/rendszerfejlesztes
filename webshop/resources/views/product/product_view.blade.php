@@ -4,7 +4,10 @@
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 @endpush
 @push('scripts')
-<script src="{{ asset('js/product_view.js') }}" defer></script>
+@if($product->offer)
+    <script src="{{ asset('js/licit.js') }}" defer></script>
+    <script src="{{ asset('js/product_view.js') }}" defer></script>
+     @endif
     <script>
         let id = {{$product->id}};
         @if($product->offer)let comment_number = {{count($product->offer->comments)}}; @endif
@@ -88,9 +91,9 @@
                 <div class="row" style="float:right; padding-right:2%">
                     @if(Auth::check())
                     @if(Auth::user()->id == $product->user_id)
-                    <button class="btn btn-primary btn-lg">
+                    <a href="{{route('make_offer_view',$product->id)}}" class="btn btn-primary btn-lg">
                         Meghírdetés
-                    </button>
+                    </a>
                     @endif
                     @endif
                 </div>
@@ -111,13 +114,19 @@
                                                 <h3>Státusz:</h3>
                                             </td>
                                             <td>
-                                                @if($product->offer->status)
+                                                @if($product->offer->end_date > Carbon::now())
                                                 <h3 style="color: green"><strong>Aktív</strong></h3>
                                                 @else
                                                 <h3 style="color: grey"><strong>Inaktív</strong></h3>
                                                 @endif
                                             </td>
                                         </tr>
+                                        @if(!$product->offer->end_date < Carbon::now())
+                                        <tr>
+                                            <td><h3>Nyertes:</h3></td>
+                                            <td><h3>@if(count($product->offer->licits) != 0){{$product->offer->licits()->get()->sortByDesc('price')->first()->user->profile->getFullName()}}@else Nem érkezett licit @endif </h3></td>
+                                        </tr>
+                                        @endif
                                         <tr>
                                             <td>
                                                 <h3>Lejárati dátum:</h3>
@@ -160,6 +169,7 @@
                                         @endforeach
                                 </ul>
                             </div>
+                            @if($product->offer->end_date > time())
                             <div class="licit-section">
                                 <div class="col-md-12">
                                     <div class="row">
@@ -172,6 +182,7 @@
                                     </div>
                                 </div>
                             </div>
+                                @endif
                         </div>
                     </div>
                 </div>
