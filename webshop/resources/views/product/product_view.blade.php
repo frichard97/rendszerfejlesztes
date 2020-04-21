@@ -169,7 +169,7 @@
                                         @endforeach
                                 </ul>
                             </div>
-                            @if($product->offer->end_date > time())
+                            @if($product->offer->end_date > Carbon::now())
                             <div class="licit-section">
                                 <div class="col-md-12">
                                     <div class="row">

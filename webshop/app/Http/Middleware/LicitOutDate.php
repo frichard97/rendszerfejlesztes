@@ -17,7 +17,7 @@ class LicitOutDate
      */
     public function handle($request, Closure $next)
     {
-        $id = $request->route()->parameters()['id'];
+        $id = $request['id'];
         $offer = Offer::find($id);
         if($offer->end_date > Carbon::now()) {
             return $next($request);
