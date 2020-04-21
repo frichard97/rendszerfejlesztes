@@ -15,10 +15,9 @@ class CreateOffersTable extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->unsignedInteger('product_id')->unique();
-            $table->date('end_date');
+            $table->dateTime('end_date');
             $table->boolean('visibility'); // 0 = Public 1 = Private
             $table->unsignedInteger('currentprice');
-            $table->boolean('status')->default(true);
             $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
