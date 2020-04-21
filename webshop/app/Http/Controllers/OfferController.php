@@ -99,30 +99,40 @@ class OfferController extends Controller
         else
         {
             $licit = Offer::find($request['id'])->licits()->get();
+            $o = Offer::find($request['id']);
             if(count($licit) != 0)
             {
-                $licit = $licit->sortByDesc('price')->first();
-                if($licit->price >= $request['price'])
+                //$licit = $licit->sortByDesc('price')->first();
+                if($o->currentprice >= $request['price'])
                 {
                     return "nok";
                 }
                 else {
-                    Licit::create([
+                    $l = Licit::create([
                         'offer_id' => $request['id'],
                         'user_id' => Auth::user()->id,
                         'price' => $request['price']
                     ]);
+                    $o->currentprice = $l->price;
+                    $o->save();
                     return "OK";
                 }
             }
             else
             {
-                Licit::create([
-                    'offer_id' => $request['id'],
-                    'user_id' => Auth::user()->id,
-                    'price' => $request['price']
-                ]);
-                return "OK";
+                if($o->currentprice >= $request['price']) {
+                    return "nok";
+                }
+                else {
+                    $l = Licit::create([
+                        'offer_id' => $request['id'],
+                        'user_id' => Auth::user()->id,
+                        'price' => $request['price']
+                    ]);
+                    $o->currentprice = $l->price;
+                    $o->save();
+                    return "OK";
+                }
             }
 
         }

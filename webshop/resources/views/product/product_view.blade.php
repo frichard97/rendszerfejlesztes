@@ -121,7 +121,7 @@
                                                 @endif
                                             </td>
                                         </tr>
-                                        @if(!$product->offer->end_date < Carbon::now())
+                                        @if($product->offer->end_date < Carbon::now())
                                         <tr>
                                             <td><h3>Nyertes:</h3></td>
                                             <td><h3>@if(count($product->offer->licits) != 0){{$product->offer->licits()->get()->sortByDesc('price')->first()->user->profile->getFullName()}}@else Nem érkezett licit @endif </h3></td>
