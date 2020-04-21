@@ -48,7 +48,7 @@
                                         <span>{{$user->created_at}}</span>
                                     </td>
                                     <td style="width: 20%;">
-                                        <a href="#">
+                                        <a href="{{route('user_view',$user->id)}}">
                                             <span class="fa fa-search-plus fa-3x"></span>
                                         </a>
                                         <a href="#">
