@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Comment;
 use App\Licit;
 use App\Product;
+use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -87,6 +88,11 @@ class OfferController extends Controller
     }
     public function new_licit(Request $request)
     {
+        $o = Offer::find($request['id']);
+        if($o->end_date < Carbon::now())
+        {
+            return "nok";
+        }
         $validator = Validator::make($request->all(),[
             'id' => 'required',
             'price' => 'required|numeric',
@@ -99,7 +105,7 @@ class OfferController extends Controller
         else
         {
             $licit = Offer::find($request['id'])->licits()->get();
-            $o = Offer::find($request['id']);
+
             if(count($licit) != 0)
             {
                 //$licit = $licit->sortByDesc('price')->first();

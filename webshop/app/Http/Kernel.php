@@ -73,7 +73,6 @@ class Kernel extends HttpKernel
         'product_view_exists_offer' => ProductViewExistsOffer::class,
         'is_admin' => IsAdmin::class,
         'offer_is_yours' => OfferIsYours::class,
-        'licit_is_outdate' => LicitOutDate::class,
     ];
 
     /**
