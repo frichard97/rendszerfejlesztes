@@ -50,23 +50,9 @@
                                     </td>
                                     <td style="width: 20%;">
                                     <a href="#">
-                                                <span class="fa fa-search-plus fa-3x"></span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="fa fa-pencil fa-3x"></span>
-                                            </a>
                                             <a href="javascript:delete_category({{$category->id}})" class="table-link danger">
                                                 <span class="fa fa-trash-o fa-3x"></span>
-                                            </a>
-                                        <a href="#">
-                                            <span class="fa fa-search-plus fa-3x"></span>
-                                        </a>
-                                        <a href="#">
-                                            <span class="fa fa-pencil fa-3x"></span>
-                                        </a>
-                                        <a href="javascript:delete_category({{$category->id}})" class="table-link danger">
-                                            <span class="fa fa-trash-o fa-3x"></span>
-                                        </a>
+                                            </a>                                      
                                     </td>
                                 </tr>
                                 @endforeach
