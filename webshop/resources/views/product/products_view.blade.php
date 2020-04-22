@@ -9,6 +9,23 @@
 @section('content')
 
     <div class="container">
+    @if(session('success'))
+    <div class="alert alert-success">
+
+        <h1>{{session('success')}}</h1>
+    </div>
+    @endif
+    @if(session('failed'))
+    <div class="alert alert-danger">
+
+        <h1>{{session('failed')}}</h1>
+    </div>
+    @endif
+    @if(session('info'))
+    <div class="alert alert-info">
+        <h1>{{session('info')}}</h1>
+    </div>
+    @endif
         <div class="row">
             <div class="col-lg-12">
                 <div class="main-box no-header clearfix">
