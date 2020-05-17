@@ -14,6 +14,7 @@ class CreateOffersTable extends Migration
     public function up()
     {
         Schema::create('offers', function (Blueprint $table) {
+            $table->increments('id');
             $table->unsignedInteger('product_id')->unique();
             $table->dateTime('end_date');
             $table->boolean('visibility'); // 0 = Public 1 = Private

@@ -100,6 +100,15 @@ table.shoping-cart-table tr td:last-child {
   right: 0;
 }
 
+.product-private {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 12px;
+  position: absolute;
+  top: -32px;
+  right: 150px;
+}
+
 .product-detail .ibox-content {
   padding: 30px 30px 50px 30px;
 }

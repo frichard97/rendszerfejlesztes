@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Offer extends Model
 {
-    protected $primaryKey = 'product_id';
     protected $fillable = [
             'product_id','end_date','visibility','currentprice'
     ];

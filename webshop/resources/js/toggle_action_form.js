@@ -1,8 +1,8 @@
-$(document).ready(function(){   
+$(document).ready(function(){
     $( "#toggle" ).change(function() {
         $("#proba").toggle();
     });
-    
+
 }
 
 );

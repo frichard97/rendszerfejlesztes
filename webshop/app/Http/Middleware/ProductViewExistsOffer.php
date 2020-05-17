@@ -20,7 +20,25 @@ class ProductViewExistsOffer
         $product = Product::find($request->route()->parameters()['id']);
         if($product) {
             if($product->offer) {
-                return $next($request);
+                if($product->offer->visibility == 0) {
+                    return $next($request);
+                }
+                else
+                {
+                    $users = $product->offer->white_users;
+                    foreach ($users as $user)
+                    {
+                        if($user->id == Auth::user()->id)
+                        {
+                            return $next($request);
+                        }
+                    }
+                    if(Auth::user()->id == $product->user_id)
+                    {
+                        return $next($request);
+                    }
+                    return back();
+                }
             }
             else
             {

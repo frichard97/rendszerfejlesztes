@@ -32,18 +32,18 @@
                 <div class="form-group row">
                     <label class="col-4 col-form-label">Láthatóság</label>
                     <div class="col-4">
-                        <input name="visibility" type="checkbox" data-toggle="toggle" data-on="Enabled" data-off="Disabled" id="toggle" data-onstyle="info" data-offstyle="danger" data-width="100">
+                        <input name="visibility" type="checkbox" data-toggle="toggle" data-on="Privát" data-off="Publikus" id="toggle" data-onstyle="danger" data-offstyle="info" data-width="100">
                         <script>
                             $(function() {
                                 $('#toggle').bootstrapToggle({
-                                    on: 'Publikus',
-                                    off: 'Privát'
+                                    on: 'Privát',
+                                    off: 'Publikus'
                                 });
                             })
                         </script>
                     </div>
                 </div>
-                <div id="proba" class="form-group row">
+                <div id="proba" class="form-group row" style="display: none">
                     <div id="whitelist" class="header">
                         <h3 style="margin:5px">Meghivottak</h3>
                         <input type="text" id="Input" placeholder="email">
@@ -55,7 +55,7 @@
                         </ul>
                     </div>
 
-                    
+
 
                 </div>
 
