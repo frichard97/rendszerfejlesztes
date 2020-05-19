@@ -38,6 +38,9 @@ Route::middleware(['auth'])->group(function (){
         Route::post('product/{id}/create_offer','OfferController@create_offer')->name('create_offer');
         Route::post('product/new_comment','OfferController@new_comment')->name('new_comment');
         Route::post('product/new_licit','OfferController@new_licit')->name('new_licit');
+
+        Route::get('product/{id}/subscribe', 'OfferController@subscribe')->name('subscribe');
+
         //ADMIN middleware TODO
         Route::middleware(['is_admin'])->group(function (){
             Route::get('/user/{id}','AdminController@user_view')->name('user_view')->middleware('user_exist');
@@ -52,3 +55,7 @@ Route::middleware(['auth'])->group(function (){
 
 });
 
+Route::get('/test', function(){
+    $notif = App\User::find('1');
+    dd($notif->notifications);
+});

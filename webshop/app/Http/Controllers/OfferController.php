@@ -210,4 +210,15 @@ class OfferController extends Controller
             }
         }
     }
+
+    public function subscribe($id) {
+        $user = Auth::user();
+        $offer = Product::find($id)->offer;
+        
+        if ($offer) {
+            if ($this->getAuthority($offer)) {
+                $user->wish_offers()->attach($offer);
+            }
+        }
+    }
 }
