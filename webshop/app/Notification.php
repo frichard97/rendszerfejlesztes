@@ -15,6 +15,6 @@ class Notification extends Model
     }
 
     public function offer() {
-        return $this->hasOne(Offer::class, 'product_id', 'offer_id');
+        return $this->hasOne(Offer::class, 'id', 'offer_id');
     }
 }
