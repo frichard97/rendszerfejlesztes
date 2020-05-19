@@ -72,7 +72,7 @@
                                 <i class="fa fa-bell-o"></i>
                             </a>
 
-                            <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
+                            <ul id="notmenu" class="dropdown-menu dropdown-menu-right notifications" role="menu" aria-labelledby="dLabel">
 
                                 <div class="notification-heading"><h4 class="menu-title">Értesítések</h4>
                                 </div>
