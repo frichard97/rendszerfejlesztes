@@ -19,3 +19,23 @@ body {
     margin-bottom: 5%;
     border: #eee;
 }
+
+.product-times {
+    display: inline-block;
+    padding: 5px;
+    float: right;
+}
+
+#timer{
+    display: flex;
+    flex-wrap: initial;
+    text-align: right;
+}
+
+#timer div{
+    padding: 2px;
+}
+.table {
+    width: 100%;
+}
+

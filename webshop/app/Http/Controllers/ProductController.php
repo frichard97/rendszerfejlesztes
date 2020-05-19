@@ -93,4 +93,9 @@ class ProductController extends Controller
         }
     }
 
+    public function get_end_date($id) {
+        $product = Product::find($id);
+        return $product->offer->end_date;
+    }
+
 }

@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function (){
         Route::post('product/new_licit','OfferController@new_licit')->name('new_licit');
 
         Route::post('product/{id}/subscribe', 'OfferController@subscribe')->name('subscribe');
+        Route::post('product/{id}/get_end_date', 'ProductController@get_end_date')->name('get_end_date');
 
         Route::post('get_notification','OfferController@get_notification')->name('get_notification');
         Route::post('notification_make_seen','OfferController@notification_make_seen')->name('notification_make_seen');

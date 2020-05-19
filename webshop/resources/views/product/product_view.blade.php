@@ -12,7 +12,6 @@
         let id = {{$product->id}};
         @if($product->offer)let comment_number = {{count($product->offer->comments)}}; @endif
             @if($product->offer)let licit_number = {{count($product->offer->licits)}}; @endif
-
     </script>
 @endpush
 @section('content')
@@ -149,7 +148,18 @@
                                                 <h3>Lejárati dátum:</h3>
                                             </td>
                                             <td>
-                                                <h3> {{$product->offer->end_date}}</h3>
+                                                    <h3> {{$product->offer->end_date}}</h3>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><h3>Hátralévő idő:</h3></td>
+                                            <td>
+                                                <div id="timer">
+                                                    <div id="days"></div>
+                                                    <div id="hours"></div>
+                                                    <div id="minutes"></div>
+                                                    <div id="seconds"></div>
+                                                </div>
                                             </td>
                                         </tr>
                                     </table>
