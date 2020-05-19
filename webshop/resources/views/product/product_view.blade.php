@@ -87,6 +87,7 @@
                                             <span class=" fa fa-bell-o fa-3x"></span>
                                     </a>
                                 </td>
+                                <td></td>
                             </tr>
                         </table>
                     </div>
