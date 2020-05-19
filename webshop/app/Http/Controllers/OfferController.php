@@ -306,4 +306,14 @@ class OfferController extends Controller
             $n->save();
         }
     }
+    public function delete_notifications()
+    {
+        $user = Auth::user();
+        $notification = $user->notifications;
+        foreach ($notification as $n)
+        {
+            $n->delete();
+        }
+        return back();
+    }
 }

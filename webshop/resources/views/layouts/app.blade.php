@@ -95,7 +95,7 @@
                                 </div>
                                 <li class="divider"></li>
                                 <div class="notification-footer" >
-                                    <a style="text-align: right" href="#">
+                                    <a style="text-align: right" href="{{route('delete_notifications')}}">
                                         <h4 class="menu-title">Összes törlése</h4>
                                     </a>
                                 </div>

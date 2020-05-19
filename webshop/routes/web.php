@@ -44,6 +44,7 @@ Route::middleware(['auth'])->group(function (){
 
         Route::post('get_notification','OfferController@get_notification')->name('get_notification');
         Route::post('notification_make_seen','OfferController@notification_make_seen')->name('notification_make_seen');
+        Route::get('delete_notifications','OfferController@delete_notifications')->name('delete_notifications');
 
         //ADMIN middleware TODO
         Route::middleware(['is_admin'])->group(function (){
