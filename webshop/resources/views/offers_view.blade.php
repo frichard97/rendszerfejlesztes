@@ -3,8 +3,6 @@
 <link href="{{ asset('css/offers_view.css') }}" rel="stylesheet">
 @endpush
 @section('content')
-
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
     <div class="row">
         @if(\Illuminate\Support\Facades\Auth::check())

@@ -157,7 +157,7 @@ window.new_licit = function (id) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Egyetem\19-20-2\RendszerFejlesztes\rendszerfejlesztes.git\webshop\resources\js\licit.js */"./resources/js/licit.js");
+module.exports = __webpack_require__(/*! D:\Rendszerfejlesztes\webshop\resources\js\licit.js */"./resources/js/licit.js");
 
 
 /***/ })
