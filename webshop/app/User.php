@@ -63,4 +63,14 @@ class User extends Authenticatable
     public function notifications() {
         return $this->hasMany(Notification::class);
     }
+    public function unseen_num_of_notifs() {
+        $count = 0;
+        $notifs = $this->notifications;
+        foreach($notifs as $n){
+            if (!$n->seen) {
+                $count+=1;
+            }
+        }
+        return $count;
+    }
 }

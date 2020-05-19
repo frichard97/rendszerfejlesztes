@@ -157,7 +157,7 @@ class OfferController extends Controller
                             } else {
                                 Notification::create([
                                     'name' => "Új licit",
-                                    'user_id' => $me,
+                                    'user_id' => $u->id,
                                     'offer_id' => $request['id'],
                                     'comment' => "Új licitálás történt, ".$l->price." Ft összegben.",
                                     'seen' => 0
@@ -186,7 +186,7 @@ class OfferController extends Controller
                             } else {
                                 Notification::create([
                                     'name' => "Új licit",
-                                    'user_id' => $me,
+                                    'user_id' => $u->id,
                                     'offer_id' => $request['id'],
                                     'comment' => "Új licitálás történt, ".$l->price." Ft összegben.",
                                     'seen' => 0

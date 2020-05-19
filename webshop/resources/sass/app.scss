@@ -53,7 +53,8 @@
 
     font-size:1.3rem;
     color:#000;
-
+    display: flex;
+    justify-content: space-between;
 }
 
 .notifications a.content {
@@ -69,3 +70,6 @@
     border-radius:4px;
 }
 
+.notification-footer {
+    text-align: right;
+}

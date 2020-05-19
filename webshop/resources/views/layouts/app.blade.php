@@ -57,7 +57,9 @@
                             @endif
                             @else
                         <div class="dropdown">
-                            <span class="badge badge-info">10</span>
+                            <span class="badge badge-info">
+                                {{Auth::user()->unseen_num_of_notifs()}}
+                            </span>
                             <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
                                 <i class="fa fa-bell-o"></i>
                             </a>
@@ -68,14 +70,27 @@
                                 </div>
                                 <li class="divider"></li>
                                 <div class="notifications-wrapper">
-                                    <a class="content" href="#">
+                                    @foreach(Auth::user()->notifications as $n)
+                                    <a class="content" href="{{route('product_view', $n->offer->product->id)}}">
                                         <div class="notification-item">
-                                            <h4 class="item-title">Evaluation Deadline 1 · day ago</h4>
-                                            <p class="item-info">Marketing 101, Video Assignment</p>
+                                            <div class="item-title">
+                                                <h4>{{$n->name}}</h4>
+                                                 <h5 style="text-align: right">{{$n->created_at}}</h5>
+                                            </div>
+                                            <div class="item-info">
+                                              <p>{{$n->comment}}</p>
+                                            </div>
                                         </div>
                                     </a>
+                                    
+                                    @endforeach
                                 </div>
                                 <li class="divider"></li>
+                                <div class="notification-footer" >
+                                    <a style="text-align: right" href="#">
+                                        <h4 class="menu-title">Összes törlése</h4>
+                                    </a>
+                                </div>
                             </ul>
 
                         </div>
