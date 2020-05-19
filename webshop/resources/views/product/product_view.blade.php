@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @push('styles')
 <link href="{{ asset('css/product_view.css') }}" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
 @endpush
 @push('scripts')
 @if($product->offer)
@@ -82,11 +82,21 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="#">
-                                            <a href="#" class="table-link danger">
-                                            <span class=" fa fa-bell-o fa-3x"></span>
-                                    </a>
+                                    <form id='sub' action="{{route('subscribe', $product->id)}}" method="POST">
+                                        <!-- <i class="fas fa-bell-slash"></i> -->
+                                        @csrf
+                                        <a @if ($subscribed)
+                                                class="far fa-bell-slash fa-3x"
+                                            @else
+                                                class="fa fa-bell-o fa-3x" 
+                                            @endif 
+                                                href="#"
+                                                onclick="event.preventDefault();
+                                                document.getElementById('sub').submit();">
+                                        </a> 
+                                    </form>
                                 </td>
+                                <td></td>
                             </tr>
                         </table>
                     </div>

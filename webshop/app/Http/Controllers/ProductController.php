@@ -75,7 +75,16 @@ class ProductController extends Controller
     public function product_view($id)
     {
         $product = Product::find($id);
-        return view('product/product_view',['product' => $product]);
+        $ws = $product->offer->wish_users;
+        $subbed = false;
+        $user = Auth::user();
+        foreach ($ws as $u) {
+            if ($u->id == $user->id) {
+                $subbed = true;
+            }
+        }
+        
+        return view('product/product_view',['product' => $product, 'subscribed' => $subbed]);
     }
 
 }
