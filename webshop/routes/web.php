@@ -41,6 +41,9 @@ Route::middleware(['auth'])->group(function (){
 
         Route::post('product/{id}/subscribe', 'OfferController@subscribe')->name('subscribe');
 
+        Route::post('get_notification','OfferController@get_notification')->name('get_notification');
+        Route::post('notification_make_seen','OfferController@notification_make_seen')->name('notification_make_seen');
+
         //ADMIN middleware TODO
         Route::middleware(['is_admin'])->group(function (){
             Route::get('/user/{id}','AdminController@user_view')->name('user_view')->middleware('user_exist');

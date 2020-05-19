@@ -28,4 +28,5 @@ mix.js('resources/js/app.js', 'public/js')
    .js('resources/js/make_offer.js','public/js')
    .js('resources/js/products_view.js','public/js')
    .js('resources/js/categories_view.js','public/js')
-    .js('resources/js/licit.js','public/js');
+    .js('resources/js/licit.js','public/js')
+    .js('resources/js/notification.js','public/js');

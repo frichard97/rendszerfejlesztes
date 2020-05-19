@@ -28,7 +28,7 @@ class ProductController extends Controller
     {
         $product = Product::find($request['id']);
         if ($product) {
-            if (!Offer::find($product->id)) {
+            if (!$product->offer) {
                 $product->delete();
                 Session::flash('success', 'A terméket sikeresen töröltük. :)');
                 return back();
@@ -75,16 +75,22 @@ class ProductController extends Controller
     public function product_view($id)
     {
         $product = Product::find($id);
-        $ws = $product->offer->wish_users;
-        $subbed = false;
-        $user = Auth::user();
-        foreach ($ws as $u) {
-            if ($u->id == $user->id) {
-                $subbed = true;
+        if($product->offer) {
+            $ws = $product->offer->wish_users;
+            $subbed = false;
+            $user = Auth::user();
+            foreach ($ws as $u) {
+                if ($u->id == $user->id) {
+                    $subbed = true;
+                }
             }
+
+            return view('product/product_view', ['product' => $product, 'subscribed' => $subbed]);
         }
-        
-        return view('product/product_view',['product' => $product, 'subscribed' => $subbed]);
+        else
+        {
+            return view('product/product_view', ['product' => $product]);
+        }
     }
 
 }
