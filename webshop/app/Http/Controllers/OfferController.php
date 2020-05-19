@@ -143,7 +143,7 @@ class OfferController extends Controller
                         return "lowprice";
                     } else {
                         $l = Licit::create([
-                            'offer_id' => $request['id'],
+                            'offer_id' => $o->id,
                             'user_id' => Auth::user()->id,
                             'price' => $request['price']
                         ]);
@@ -158,7 +158,7 @@ class OfferController extends Controller
                                 Notification::create([
                                     'name' => "Új licit",
                                     'user_id' => $u->id,
-                                    'offer_id' => $request['id'],
+                                    'offer_id' => $o->id,
                                     'comment' => "Új licitálás történt, ".$l->price." Ft összegben.",
                                     'seen' => 0
                                 ]);
@@ -172,7 +172,7 @@ class OfferController extends Controller
                         return "nok";
                     } else {
                         $l = Licit::create([
-                            'offer_id' => $request['id'],
+                            'offer_id' => $o->id,
                             'user_id' => Auth::user()->id,
                             'price' => $request['price']
                         ]);
@@ -187,7 +187,7 @@ class OfferController extends Controller
                                 Notification::create([
                                     'name' => "Új licit",
                                     'user_id' => $u->id,
-                                    'offer_id' => $request['id'],
+                                    'offer_id' => $o->id,
                                     'comment' => "Új licitálás történt, ".$l->price." Ft összegben.",
                                     'seen' => 0
                                 ]);
