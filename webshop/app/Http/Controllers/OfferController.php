@@ -88,7 +88,7 @@ class OfferController extends Controller
     {
         $ok = false;
         if ($request['type'] == "phase1") {
-            $offer = Offer::find($request['id']);
+            $offer = Product::find($request['id'])->offer;
             if ($this->getAuthority($offer)) {
                 $comment = $offer->comments;
                 return count($comment);
@@ -97,7 +97,7 @@ class OfferController extends Controller
             }
         }
         if ($request['type'] == "phase2") {
-            $offer = Offer::find($request['id']);
+            $offer = Product::find($request['id'])->offer;
             if($this->getAuthority($offer)) {
                 $comment_count = count($offer->comments);
                 $frontendcount = $request['comment_number'];
@@ -123,7 +123,7 @@ class OfferController extends Controller
 
     public function new_licit(Request $request)
     {
-        $o = Offer::find($request['id']);
+        $o = Product::find($request['id'])->offer;
         if ($o->end_date < Carbon::now()) {
             return "outoftime";
         }
@@ -135,7 +135,7 @@ class OfferController extends Controller
         if ($validator->fails()) {
             return "nok";
         } else {
-            $licit = Offer::find($request['id'])->licits()->get();
+            $licit = Product::find($request['id'])->offer->licits()->get();
             if ($this->getAuthority($o)) {
                 if (count($licit) != 0) {
                     //$licit = $licit->sortByDesc('price')->first();
@@ -211,7 +211,7 @@ class OfferController extends Controller
     {
         if ($request['type'] == "phase1") {
 
-            $offer = Offer::find($request['id']);
+            $offer = Product::find($request['id'])->offer;
             if($this->getAuthority($offer)) {
                 $licits = $offer->licits;
                 return count($licits);
@@ -222,7 +222,7 @@ class OfferController extends Controller
             }
         }
         if ($request['type'] == "phase2") {
-            $offer = Offer::find($request['id']);
+            $offer = Product::find($request['id'])->offer;
             if($this->getAuthority($offer)) {
                 $licit_count = count($offer->licits);
                 $frontend_count = $request['licit_number'];
@@ -247,10 +247,10 @@ class OfferController extends Controller
     public function subscribe(Request $request, $id) {
         $user = Auth::user();
         $offer = Product::find($id)->offer;
-        
+
         if ($offer) {
             if ($this->getAuthority($offer)) {
-                
+
                 $wishusers = $offer->wish_users;
                 $subscribed = true;
                 foreach($wishusers as $ws) {
@@ -267,5 +267,43 @@ class OfferController extends Controller
         }
 
         return back();
+    }
+    public function get_notification(Request $request){
+        if($request['type'] == "phase1"){
+            $notifications = Auth::user()->notifications;
+            $count = 0;
+            foreach ($notifications as $n){
+                if(!$n->seen)
+                {
+                    $count++;
+                }
+            }
+            return  ["notification_number"=>count($notifications),
+                    "unseen" =>  $count];
+        }
+        if($request['type'] == "phase2"){
+            $frontend_notification_number = $request['notification_number'];
+            $backend_notification_number =  count(Auth::user()->notifications);
+            $notifications = Auth::user()->notifications()->get()->sortByDesc('created_at')->take($backend_notification_number - $frontend_notification_number);
+            $returndata = collect();
+            foreach ($notifications as $n) {
+                $returndata->push([
+                    'comment' => $n->comment,
+                    'name' => $n->name,
+                    'date' => $n->created_at,
+                    'href' => route('product_view',$n->offer->product->id)
+                ]);
+            }
+            return $returndata;
+        }
+    }
+    public function notification_make_seen(Request $request)
+    {
+        $notifications = Auth::user()->notifications;
+        foreach($notifications as $n)
+        {
+            $n->seen = 1;
+            $n->save();
+        }
     }
 }

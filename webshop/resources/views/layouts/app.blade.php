@@ -13,7 +13,15 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/2e54adaa1a.js" crossorigin="anonymous"></script>
+    @if(\Illuminate\Support\Facades\Auth::check())
+    <script src="{{ asset('js/notification.js') }}" defer></script>
+    @endif
 @stack('scripts')
+    @if(Auth::check())
+    <script>
+        let notification_number = {{count(Auth::user()->notifications)}};
+    </script>
+    @endif
 
 <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -57,7 +65,7 @@
                             @endif
                             @else
                         <div class="dropdown">
-                            <span class="badge badge-info">
+                            <span id="notification_num" class="badge badge-info">
                                 {{Auth::user()->unseen_num_of_notifs()}}
                             </span>
                             <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
@@ -69,8 +77,8 @@
                                 <div class="notification-heading"><h4 class="menu-title">Értesítések</h4>
                                 </div>
                                 <li class="divider"></li>
-                                <div class="notifications-wrapper">
-                                    @foreach(Auth::user()->notifications as $n)
+                                <div class="notifications-wrapper" id="add_notification">
+                                    @foreach(Auth::user()->notifications()->get()->sortByDesc('created_at') as $n)
                                     <a class="content" href="{{route('product_view', $n->offer->product->id)}}">
                                         <div class="notification-item">
                                             <div class="item-title">
@@ -82,7 +90,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                    
+
                                     @endforeach
                                 </div>
                                 <li class="divider"></li>

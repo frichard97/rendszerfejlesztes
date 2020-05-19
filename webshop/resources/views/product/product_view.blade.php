@@ -79,6 +79,7 @@
                                     <h3>{{$product->created_at}}</h3>
                                 </td>
                             </tr>
+                            @if($product->offer)
                             <tr>
                                 <td>
                                     <form id='sub' action="{{route('subscribe', $product->id)}}" method="POST">
@@ -87,16 +88,17 @@
                                         <a @if ($subscribed)
                                                 class="far fa-bell-slash fa-3x"
                                             @else
-                                                class="fa fa-bell-o fa-3x" 
-                                            @endif 
+                                                class="fa fa-bell-o fa-3x"
+                                            @endif
                                                 href="#"
                                                 onclick="event.preventDefault();
                                                 document.getElementById('sub').submit();">
-                                        </a> 
+                                        </a>
                                     </form>
                                 </td>
                                 <td></td>
                             </tr>
+                                @endif
                         </table>
                     </div>
                 </div>
