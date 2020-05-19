@@ -42,7 +42,11 @@ $(document).ready(function () {
 });
 window.new_licit = function (id) {
     $.post("/product/new_licit", {'_token': $('meta[name=csrf-token]').attr('content'), 'id': id, 'price':$('#licit_price').val()}).done(function( data ) {
-        console.log(data);
+
+        if(data == "lowprice")
+        {
+            $('#myModal').modal('show');
+        }
     });
     $("#licit_price").val(null);
 }

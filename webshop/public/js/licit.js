@@ -143,7 +143,9 @@ window.new_licit = function (id) {
     'id': id,
     'price': $('#licit_price').val()
   }).done(function (data) {
-    console.log(data);
+    if (data == "lowprice") {
+      $('#myModal').modal('show');
+    }
   });
   $("#licit_price").val(null);
 };
