@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Offer;
 use App\User;
+use App\Notification;
 use Illuminate\Support\Facades\Validator;
 
 class OfferController extends Controller
@@ -148,6 +149,22 @@ class OfferController extends Controller
                         ]);
                         $o->currentprice = $l->price;
                         $o->save();
+                        //Subscribe for notification
+                        $me = Auth::user()->id;
+                        $ws = $o->wish_users;
+                        foreach ($ws as $u) {
+                            if ($me == $u->id) {
+                            } else {
+                                Notification::create([
+                                    'name' => "Új licit",
+                                    'user_id' => $me,
+                                    'offer_id' => $request['id'],
+                                    'comment' => "Új licitálás történt, ".$l->price." Ft összegben.",
+                                    'seen' => 0
+                                ]);
+                            }
+                        }
+
                         return "OK";
                     }
                 } else {
@@ -161,6 +178,22 @@ class OfferController extends Controller
                         ]);
                         $o->currentprice = $l->price;
                         $o->save();
+                        //Subscribe for notification
+                        $me = Auth::user()->id;
+                        $ws = $o->wish_users;
+                        foreach ($ws as $u) {
+                            if ($me == $u->id) {
+                            } else {
+                                Notification::create([
+                                    'name' => "Új licit",
+                                    'user_id' => $me,
+                                    'offer_id' => $request['id'],
+                                    'comment' => "Új licitálás történt, ".$l->price." Ft összegben.",
+                                    'seen' => 0
+                                ]);
+                            }
+                        }
+
                         return "OK";
                     }
                 }
@@ -211,14 +244,28 @@ class OfferController extends Controller
         }
     }
 
-    public function subscribe($id) {
+    public function subscribe(Request $request, $id) {
         $user = Auth::user();
         $offer = Product::find($id)->offer;
         
         if ($offer) {
             if ($this->getAuthority($offer)) {
-                $user->wish_offers()->attach($offer);
+                
+                $wishusers = $offer->wish_users;
+                $subscribed = true;
+                foreach($wishusers as $ws) {
+                    if($user->id == $ws->id) {
+                        $subscribed = false;
+                    }
+                }
+                if ($subscribed){
+                    $user->wish_offers()->attach($offer);
+                } else {
+                    $user->wish_offers()->detach($offer);
+                }
             }
         }
+
+        return back();
     }
 }

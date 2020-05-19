@@ -39,7 +39,7 @@ Route::middleware(['auth'])->group(function (){
         Route::post('product/new_comment','OfferController@new_comment')->name('new_comment');
         Route::post('product/new_licit','OfferController@new_licit')->name('new_licit');
 
-        Route::get('product/{id}/subscribe', 'OfferController@subscribe')->name('subscribe');
+        Route::post('product/{id}/subscribe', 'OfferController@subscribe')->name('subscribe');
 
         //ADMIN middleware TODO
         Route::middleware(['is_admin'])->group(function (){
