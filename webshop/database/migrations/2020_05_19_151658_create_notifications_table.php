@@ -23,7 +23,7 @@ class CreateNotificationsTable extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('offer_id')->references('product_id')->on('offers');
+            $table->foreign('offer_id')->references('id')->on('offers');
         });
     }
 
