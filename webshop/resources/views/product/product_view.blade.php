@@ -81,7 +81,12 @@
                                 </td>
                             </tr>
                             <tr>
-
+                                <td>
+                                    <a href="#">
+                                            <a href="#" class="table-link danger">
+                                            <span class=" fa fa-bell-o fa-3x"></span>
+                                    </a>
+                                </td>
                             </tr>
                         </table>
                     </div>
