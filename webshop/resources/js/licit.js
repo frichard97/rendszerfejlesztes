@@ -47,6 +47,7 @@ window.new_licit = function (id) {
         {
             $('#myModal').modal('show');
         }
+        console.log(data);
     });
     $("#licit_price").val(null);
 }

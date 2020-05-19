@@ -61,6 +61,6 @@ Route::middleware(['auth'])->group(function (){
 });
 
 Route::get('/test', function(){
-    $notif = App\User::find('1');
-    dd($notif->notifications);
+    $offer = \App\Product::find(3)->offer;
+    dd($offer->wish_users);
 });
