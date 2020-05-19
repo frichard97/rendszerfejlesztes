@@ -60,7 +60,7 @@
                             <span class="badge badge-info">
                                 {{Auth::user()->unseen_num_of_notifs()}}
                             </span>
-                            <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                            <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
                                 <i class="fa fa-bell-o"></i>
                             </a>
 
