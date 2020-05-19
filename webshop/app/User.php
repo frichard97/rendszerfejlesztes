@@ -52,7 +52,7 @@ class User extends Authenticatable
         return $this->hasOne(Role::class,'id','role_id');
     }
     public function offers(){
-        return $this->hasManyThrough(Offer::class,Product::class,'user_id','product_id');
+        return $this->hasManyThrough(Offer::class,Product::class,'user_id','id');
     }
     public function IsAdmin(){
         if($this->role->name == "Admin"){
