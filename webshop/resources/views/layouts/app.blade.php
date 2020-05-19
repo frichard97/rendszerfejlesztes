@@ -57,8 +57,8 @@
                             @endif
                             @else
                         <div class="dropdown">
-                            <span class="badge badge-info">10</span>
-                            <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                            <span class="badge badge-info" id="notification_number">10</span>
+                            <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
                                 <i class="fa fa-bell-o"></i>
                             </a>
 
