@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function (){
         Route::post('product/new_licit','OfferController@new_licit')->name('new_licit');
 
         Route::post('product/{id}/subscribe', 'OfferController@subscribe')->name('subscribe');
+        Route::post('product/{id}/get_end_date', 'ProductController@get_end_date')->name('get_end_date');
 
         //ADMIN middleware TODO
         Route::middleware(['is_admin'])->group(function (){
