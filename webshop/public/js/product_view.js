@@ -150,7 +150,7 @@ window.new_comment = function (id) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Rendszerfejlesztes\webshop\resources\js\product_view.js */"./resources/js/product_view.js");
+module.exports = __webpack_require__(/*! D:\Egyetem\19-20-2\RendszerFejlesztes\rendszerfejlesztes.git\webshop\resources\js\product_view.js */"./resources/js/product_view.js");
 
 
 /***/ })
