@@ -59,8 +59,9 @@ class OfferController extends Controller
         if ($validator->fails()) {
             return "notok";
         } else {
+            $offer = Product::find($request['id'])->offer;
             Comment::create([
-                'offer_id' => $request['id'],
+                'offer_id' => $offer->id,
                 'user_id' => Auth::user()->id,
                 'message' => $request['message'],
             ]);
