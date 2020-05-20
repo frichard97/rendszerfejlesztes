@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/product/{id}','ProductController@product_view')->name('product_view')->middleware('no_profile')->middleware('product_view_exists_offer');
 Route::post('/product/get_comment','OfferController@get_comment')->name('get_comment');
 Route::post('/product/get_licit','OfferController@get_licit')->name('get_licit');
+Route::post('product/{id}/get_end_date', 'ProductController@get_end_date')->name('get_end_date');
 
 
 Route::middleware(['auth'])->group(function (){
@@ -40,7 +41,6 @@ Route::middleware(['auth'])->group(function (){
         Route::post('product/new_licit','OfferController@new_licit')->name('new_licit');
 
         Route::post('product/{id}/subscribe', 'OfferController@subscribe')->name('subscribe');
-        Route::post('product/{id}/get_end_date', 'ProductController@get_end_date')->name('get_end_date');
 
         Route::post('get_notification','OfferController@get_notification')->name('get_notification');
         Route::post('notification_make_seen','OfferController@notification_make_seen')->name('notification_make_seen');
