@@ -79,7 +79,7 @@
                                     <h3>{{$product->created_at}}</h3>
                                 </td>
                             </tr>
-                            @if($product->offer)
+                            @if($product->offer && Auth::check())
                             <tr>
                                 <td>
                                     <form id='sub' action="{{route('subscribe', $product->id)}}" method="POST">
