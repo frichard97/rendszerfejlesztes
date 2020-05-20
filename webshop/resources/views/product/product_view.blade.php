@@ -7,6 +7,9 @@
 @if($product->offer)
     <script src="{{ asset('js/licit.js') }}" defer></script>
     <script src="{{ asset('js/product_view.js') }}" defer></script>
+    <script>
+        let endTime = (Date.parse('{{$product->offer->end_date}}')/1000);
+    </script>
      @endif
     <script>
         let id = {{$product->id}};
