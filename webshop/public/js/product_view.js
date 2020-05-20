@@ -149,7 +149,7 @@ $(document).ready(function () {
     now = Date.parse(now) / 1000;
     var timeLeft = endTime - now;
 
-    if (timeLeft == 0) {
+    if (timeLeft == -2) {
       location.reload(true);
     } else if (timeLeft > 0) {
       var days = Math.floor(timeLeft / 86400);
