@@ -76,12 +76,14 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         if($product->offer) {
-            $ws = $product->offer->wish_users;
             $subbed = false;
-            $user = Auth::user();
-            foreach ($ws as $u) {
-                if ($u->id == $user->id) {
-                    $subbed = true;
+            if (Auth::user()){
+                $ws = $product->offer->wish_users;
+                $user = Auth::user();
+                foreach ($ws as $u) {
+                    if ($u->id == $user->id) {
+                        $subbed = true;
+                    }
                 }
             }
 
