@@ -49,8 +49,8 @@ $(document).ready(function () {
 
 			var timeLeft = endTime - now;
 
-            if(timeLeft == 0) {
-                location.reload(true);
+            if(timeLeft == -2) {
+               location.reload(true);
             } else if (timeLeft > 0) {
                 var days = Math.floor(timeLeft / 86400);
                 var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
@@ -68,4 +68,4 @@ $(document).ready(function () {
                 $("#seconds").html(seconds + " másodperc");
             }
     }
-})
+});
